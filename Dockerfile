@@ -1,8 +1,8 @@
 # Build stage
 FROM node:20-alpine AS builder
 
-# Install pnpm
-RUN npm install -g pnpm@latest
+# Install pnpm 8 (compatible with Node.js 20)
+RUN npm install -g pnpm@8
 
 WORKDIR /app
 
@@ -28,8 +28,8 @@ FROM node:20-alpine AS runner
 
 WORKDIR /app
 
-# Install pnpm for workspace resolution
-RUN npm install -g pnpm@latest
+# Install pnpm 8 (compatible with Node.js 20)
+RUN npm install -g pnpm@8
 
 # Copy workspace config
 COPY package.json pnpm-workspace.yaml pnpm-lock.yaml .npmrc ./
