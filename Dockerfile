@@ -14,7 +14,8 @@ COPY lib/ ./lib/
 COPY artifacts/api-server/ ./artifacts/api-server/
 COPY artifacts/mockup-sandbox/ ./artifacts/mockup-sandbox/
 COPY scripts/ ./scripts/
-COPY tsconfig.base.json tsconfig.json ./
+COPY tsconfig.base.json ./
+COPY tsconfig.json ./
 
 # Install dependencies
 RUN pnpm install --frozen-lockfile
