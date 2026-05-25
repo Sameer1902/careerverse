@@ -6,8 +6,8 @@ RUN npm install -g pnpm@9
 
 WORKDIR /app
 
-# Copy workspace config files
-COPY package.json pnpm-workspace.yaml pnpm-lock.yaml .npmrc ./
+# Copy workspace config files (but not lockfile)
+COPY package.json pnpm-workspace.yaml .npmrc ./
 
 # Copy all workspace packages (needed for pnpm install with workspace protocol)
 COPY lib/ ./lib/
@@ -17,8 +17,8 @@ COPY scripts/ ./scripts/
 COPY tsconfig.base.json ./
 COPY tsconfig.json ./
 
-# Install dependencies
-RUN pnpm install --no-frozen-lockfile
+# Install dependencies and generate new lockfile
+RUN pnpm install
 
 # Build the API server
 RUN pnpm --filter @workspace/api-server build
@@ -28,17 +28,17 @@ FROM node:20-alpine AS runner
 
 WORKDIR /app
 
-# Install pnpm 8 (compatible with Node.js 20)
-RUN npm install -g pnpm@8
+# Install pnpm
+RUN npm install -g pnpm@9
 
-# Copy workspace config
-COPY package.json pnpm-workspace.yaml pnpm-lock.yaml .npmrc ./
+# Copy workspace config (but not lockfile)
+COPY package.json pnpm-workspace.yaml .npmrc ./
 COPY lib/ ./lib/
 COPY artifacts/api-server/package.json ./artifacts/api-server/package.json
 COPY scripts/package.json ./scripts/package.json
 
 # Install production dependencies only
-RUN pnpm install --no-frozen-lockfile --prod
+RUN pnpm install --prod
 
 # Copy built output from builder
 COPY --from=builder /app/artifacts/api-server/dist ./artifacts/api-server/dist
