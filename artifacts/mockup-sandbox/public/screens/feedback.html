@@ -1,0 +1,59 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8"><style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{width:402px;min-height:874px;background:#0A0A0F;font-family:'Segoe UI',sans-serif;padding:54px 28px 40px}
+.header{display:flex;align-items:center;gap:14px;margin-bottom:24px}
+.back{font-size:22px;color:#fff}.title{font-size:20px;font-weight:700;color:#fff}
+.hero{text-align:center;margin-bottom:28px}
+.hero-icon{font-size:48px;margin-bottom:10px}
+.hero-title{font-size:20px;font-weight:800;color:#fff;margin-bottom:6px}
+.hero-sub{font-size:13px;color:#8888A0;line-height:1.6}
+/* Stars */
+.star-section{background:#111118;border:1px solid #22222E;border-radius:18px;padding:22px;margin-bottom:16px;text-align:center}
+.star-title{font-size:13px;color:#AAAACC;font-weight:600;margin-bottom:14px}
+.stars{display:flex;justify-content:center;gap:10px;font-size:36px}
+.star{cursor:pointer;filter:drop-shadow(0 0 6px #FFD70080)}
+.star-val{font-size:24px;font-weight:800;color:#FFD700;margin-top:10px}
+.star-label{font-size:12px;color:#8888A0;margin-top:2px}
+/* Categories */
+.cats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px}
+.cat-item{background:#111118;border:1px solid #22222E;border-radius:14px;padding:14px;text-align:center;cursor:pointer}
+.cat-item.sel{border-color:#FF6B00;background:#1A1410}
+.cat-icon{font-size:22px;margin-bottom:6px}
+.cat-label{font-size:12px;color:#ccc;font-weight:600}
+.cat-stars{font-size:12px;color:#FFD700;margin-top:3px}
+/* Text box */
+.textarea-wrap{background:#111118;border:1px solid #22222E;border-radius:14px;padding:16px;margin-bottom:16px}
+.textarea-label{font-size:12px;color:#AAAACC;font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px}
+.textarea-mock{background:#16161F;border-radius:10px;padding:14px;min-height:80px;color:#8888A0;font-size:13px;line-height:1.6}
+.submit-btn{width:100%;padding:16px;background:linear-gradient(135deg,#FF6B00,#FF9500);border:none;border-radius:14px;color:#fff;font-size:16px;font-weight:700;cursor:pointer}
+</style></head><body>
+<div class="header"><span class="back">←</span><span class="title">Rate Your Experience</span></div>
+<div class="hero">
+  <div class="hero-icon">⭐</div>
+  <div class="hero-title">How did we do?</div>
+  <div class="hero-sub">Your feedback helps us improve CareerVerse for every student in India</div>
+</div>
+
+<div class="star-section">
+  <div class="star-title">Overall Experience</div>
+  <div class="stars">
+    <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star" style="filter:none;color:#2A2A3A">★</span>
+  </div>
+  <div class="star-val">4.0 / 5.0</div>
+  <div class="star-label">Good — I enjoyed using CareerVerse</div>
+</div>
+
+<div class="cats">
+  <div class="cat-item sel"><div class="cat-icon">🎯</div><div class="cat-label">Career Matching</div><div class="cat-stars">★★★★★</div></div>
+  <div class="cat-item sel"><div class="cat-icon">🤖</div><div class="cat-label">AI Chatbot</div><div class="cat-stars">★★★★☆</div></div>
+  <div class="cat-item"><div class="cat-icon">📄</div><div class="cat-label">Resume Analyzer</div><div class="cat-stars">★★★★☆</div></div>
+  <div class="cat-item"><div class="cat-icon">👥</div><div class="cat-label">Mentors</div><div class="cat-stars">★★★★★</div></div>
+</div>
+
+<div class="textarea-wrap">
+  <div class="textarea-label">Tell us more (optional)</div>
+  <div class="textarea-mock">The ML-powered career matching is really impressive! I loved how it shows scores from different models. Would love salary comparison for more cities...</div>
+</div>
+
+<button class="submit-btn">Submit Feedback 🚀</button>
+</body></html>

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    background: #0A0A0F;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 30px;
+  }
+  .diagram {
+    width: 800px;
+  }
+  .title {
+    text-align: center;
+    font-size: 26px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 30px;
+  }
+  .title span { color: #FF6B00; }
+  .section {
+    background: #111118;
+    border: 1px solid #22222E;
+    border-radius: 18px;
+    padding: 28px;
+    margin-bottom: 20px;
+  }
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 18px;
+  }
+  .badge {
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .badge.backend { background: #3ECF8E22; color: #3ECF8E; }
+  .badge.ai { background: #4285F422; color: #4285F4; }
+  .badge.storage { background: #FF950022; color: #FF9500; }
+  .code-box {
+    background: #0D0D14;
+    border: 1px solid #1E1E2A;
+    border-radius: 12px;
+    padding: 18px 22px;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 12.5px;
+    line-height: 1.7;
+    color: #D4D4D4;
+    overflow-x: auto;
+  }
+  .comment { color: #6A9955; }
+  .keyword { color: #C586C0; }
+  .string { color: #CE9178; }
+  .function { color: #DCDCAA; }
+  .type { color: #4EC9B0; }
+  .number { color: #B5CEA8; }
+  .property { color: #9CDCFE; }
+  .flow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 16px;
+  }
+  .flow-step {
+    flex: 1;
+    background: #16161F;
+    border: 1px solid #22222E;
+    border-radius: 12px;
+    padding: 14px 12px;
+    text-align: center;
+  }
+  .flow-step-icon {
+    font-size: 22px;
+    margin-bottom: 6px;
+  }
+  .flow-step-text {
+    color: #ccc;
+    font-size: 12px;
+    font-weight: 600;
+  }
+  .flow-step-sub {
+    color: #8888A0;
+    font-size: 11px;
+    margin-top: 2px;
+  }
+  .flow-arrow {
+    color: #FF6B0055;
+    font-size: 20px;
+  }
+</style>
+</head>
+<body>
+<div class="diagram">
+  <div class="title">CareerVerse <span>Architecture</span></div>
+
+  <!-- Express 5 Backend -->
+  <div class="section">
+    <div class="section-header">
+      <div class="badge backend">Express 5 Backend</div>
+    </div>
+    <div class="code-box"><span class="keyword">import</span> express, { type Express } <span class="keyword">from</span> <span class="string">"express"</span>;
+<span class="keyword">const</span> <span class="variable">app</span>: <span class="type">Express</span> = <span class="function">express</span>();
+<span class="variable">app</span>.<span class="function">use</span>(<span class="string">"/api"</span>, <span class="variable">router</span>);
+<span class="variable">app</span>.<span class="function">listen</span>(<span class="number">8080</span>, () => <span class="variable">console</span>.<span class="function">log</span>(<span class="string">"API Server running"</span>));
+
+<span class="comment">// Routes: /api/resume/analyze | /api/career/eligibility-test | /api/healthz</span></div>
+    <div class="flow">
+      <div class="flow-step">
+        <div class="flow-step-icon">📤</div>
+        <div class="flow-step-text">Mobile App</div>
+        <div class="flow-step-sub">Expo SDK 54</div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">
+        <div class="flow-step-icon">🔧</div>
+        <div class="flow-step-text">Express 5 Server</div>
+        <div class="flow-step-sub">Port 8080</div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">
+        <div class="flow-step-icon">🤖</div>
+        <div class="flow-step-text">OpenAI API</div>
+        <div class="flow-step-sub">GPT-4o-mini</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- OpenAI GPT-4o-mini -->
+  <div class="section">
+    <div class="section-header">
+      <div class="badge ai">OpenAI GPT-4o-mini</div>
+    </div>
+    <div class="code-box"><span class="keyword">const</span> <span class="variable">response</span> = <span class="keyword">await</span> <span class="function">fetch</span>(<span class="string">"https://api.openai.com/v1/chat/completions"</span>, {
+  <span class="property">method</span>: <span class="string">"POST"</span>,
+  <span class="property">headers</span>: {
+    <span class="string">"Authorization"</span>: <span class="string">`Bearer ${OPENAI_API_KEY}`</span>,
+  },
+  <span class="property">body</span>: <span class="type">JSON</span>.<span class="function">stringify</span>({
+    <span class="property">model</span>: <span class="string">"gpt-4o-mini"</span>,
+    <span class="property">messages</span>: [
+      { <span class="property">role</span>: <span class="string">"system"</span>, <span class="property">content</span>: <span class="variable">SYSTEM_PROMPT</span> },
+      { <span class="property">role</span>: <span class="string">"user"</span>, <span class="property">content</span>: <span class="string">`Analyze this resume...`</span> },
+    ],
+    <span class="property">max_tokens</span>: <span class="number">4000</span>,
+    <span class="property">response_format</span>: { <span class="property">type</span>: <span class="string">"json_object"</span> },
+    <span class="property">temperature</span>: <span class="number">0.3</span>,
+  }),
+});
+
+<span class="keyword">const</span> <span class="variable">analysis</span> = <span class="type">JSON</span>.<span class="function">parse</span>(<span class="variable">data</span>.<span class="property">choices</span>[<span class="number">0</span>].<span class="property">message</span>.<span class="property">content</span>);
+<span class="variable">res</span>.<span class="function">json</span>(<span class="variable">analysis</span>);</div>
+    <div class="flow">
+      <div class="flow-step">
+        <div class="flow-step-icon">📄</div>
+        <div class="flow-step-text">Resume Upload</div>
+        <div class="flow-step-sub">PDF/DOCX/Image</div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">
+        <div class="flow-step-icon">📝</div>
+        <div class="flow-step-text">Text Extraction</div>
+        <div class="flow-step-sub">pdf-parse / OCR</div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">
+        <div class="flow-step-icon">🤖</div>
+        <div class="flow-step-text">GPT-4o-mini</div>
+        <div class="flow-step-sub">JSON Response</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- AsyncStorage -->
+  <div class="section">
+    <div class="section-header">
+      <div class="badge storage">AsyncStorage Local Persistence</div>
+    </div>
+    <div class="code-box"><span class="keyword">import</span> AsyncStorage <span class="keyword">from</span> <span class="string">"@react-native-async-storage/async-storage"</span>;
+
+<span class="keyword">const</span> <span class="variable">STORAGE_KEY</span> = <span class="string">"careerverse_data"</span>;
+
+<span class="comment">// Save user data locally</span>
+<span class="keyword">await</span> AsyncStorage.<span class="function">setItem</span>(
+  <span class="variable">STORAGE_KEY</span>,
+  <span class="type">JSON</span>.<span class="function">stringify</span>({ <span class="property">assessmentAnswers</span>, <span class="property">savedCareers</span>, <span class="property">profile</span> })
+);
+
+<span class="comment">// Load on app start</span>
+<span class="keyword">const</span> <span class="variable">data</span> = <span class="keyword">await</span> AsyncStorage.<span class="function">getItem</span>(<span class="variable">STORAGE_KEY</span>);
+<span class="keyword">const</span> <span class="variable">parsed</span> = <span class="variable">data</span> ? <span class="type">JSON</span>.<span class="function">parse</span>(<span class="variable">data</span>) : {};</div>
+    <div class="flow">
+      <div class="flow-step">
+        <div class="flow-step-icon">📱</div>
+        <div class="flow-step-text">App State</div>
+        <div class="flow-step-sub">React Context</div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">
+        <div class="flow-step-icon">💾</div>
+        <div class="flow-step-text">AsyncStorage</div>
+        <div class="flow-step-sub">Key-Value</div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">
+        <div class="flow-step-icon">🔄</div>
+        <div class="flow-step-text">App Restart</div>
+        <div class="flow-step-sub">Auto-Restore</div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

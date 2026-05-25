@@ -1,0 +1,112 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8"><style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{width:402px;min-height:874px;background:#0A0A0F;font-family:'Segoe UI',sans-serif;padding:54px 0 40px}
+.header{padding:0 20px;display:flex;align-items:center;gap:14px;margin-bottom:20px}
+.back{font-size:22px;color:#fff}
+.title{font-size:18px;font-weight:700;color:#fff}
+.section{padding:0 20px;margin-bottom:20px}
+.section-title{font-size:15px;font-weight:700;color:#fff;margin-bottom:4px}
+.section-sub{font-size:11px;color:#8888A0;margin-bottom:14px}
+/* Radar chart SVG */
+.radar-card{background:#111118;border:1px solid #22222E;border-radius:18px;padding:20px;text-align:center}
+/* Heatmap */
+.heatmap{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+.hm-cell{border-radius:8px;padding:10px 6px;text-align:center}
+.hm-label{font-size:9px;color:#fff;font-weight:600;margin-bottom:4px;line-height:1.3}
+.hm-score{font-size:14px;font-weight:800;color:#fff}
+/* Skill bars */
+.skill-row{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.skill-icon{font-size:18px;width:28px;text-align:center}
+.skill-body{flex:1}
+.skill-name{font-size:12px;color:#ccc;font-weight:600;margin-bottom:5px;display:flex;justify-content:space-between}
+.skill-bar-bg{height:8px;background:#1A1A26;border-radius:4px;overflow:hidden}
+.skill-bar-fill{height:100%;border-radius:4px}
+.gap-tag{font-size:10px;padding:2px 8px;border-radius:6px;font-weight:600}
+</style></head><body>
+<div class="header"><span class="back">←</span><span class="title">Skill Gap Analysis</span></div>
+
+<div class="section">
+  <div class="section-title">Competency Radar</div>
+  <div class="section-sub">Your profile vs. AI/ML Engineer requirements</div>
+  <div class="radar-card">
+    <svg viewBox="0 0 280 260" width="280" height="260">
+      <defs>
+        <linearGradient id="req" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#FF6B00;stop-opacity:0.3"/><stop offset="100%" style="stop-color:#FF9500;stop-opacity:0.1"/></linearGradient>
+        <linearGradient id="you" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#6B5BFF;stop-opacity:0.4"/><stop offset="100%" style="stop-color:#6B5BFF;stop-opacity:0.1"/></linearGradient>
+      </defs>
+      <!-- Grid circles -->
+      <circle cx="140" cy="130" r="100" fill="none" stroke="#22222E" stroke-width="1"/>
+      <circle cx="140" cy="130" r="75" fill="none" stroke="#22222E" stroke-width="1"/>
+      <circle cx="140" cy="130" r="50" fill="none" stroke="#22222E" stroke-width="1"/>
+      <circle cx="140" cy="130" r="25" fill="none" stroke="#22222E" stroke-width="1"/>
+      <!-- Axes -->
+      <line x1="140" y1="30" x2="140" y2="230" stroke="#22222E" stroke-width="1"/>
+      <line x1="40" y1="130" x2="240" y2="130" stroke="#22222E" stroke-width="1"/>
+      <line x1="69" y1="59" x2="211" y2="201" stroke="#22222E" stroke-width="1"/>
+      <line x1="211" y1="59" x2="69" y2="201" stroke="#22222E" stroke-width="1"/>
+      <!-- Required polygon (large) -->
+      <polygon points="140,30 227,89 204,188 76,188 53,89" fill="url(#req)" stroke="#FF6B00" stroke-width="2"/>
+      <!-- Your profile polygon -->
+      <polygon points="140,62 205,105 190,170 90,170 75,105" fill="url(#you)" stroke="#6B5BFF" stroke-width="2"/>
+      <!-- Labels -->
+      <text x="140" y="20" text-anchor="middle" fill="#FF9500" font-size="10" font-weight="600">Python/ML</text>
+      <text x="244" y="92" text-anchor="start" fill="#FF9500" font-size="10" font-weight="600">Math</text>
+      <text x="220" y="200" text-anchor="middle" fill="#FF9500" font-size="10" font-weight="600">Deep Learning</text>
+      <text x="60" y="200" text-anchor="middle" fill="#FF9500" font-size="10" font-weight="600">Data Viz</text>
+      <text x="30" y="92" text-anchor="end" fill="#FF9500" font-size="10" font-weight="600">MLOps</text>
+      <!-- Legend -->
+      <rect x="60" y="238" width="10" height="10" rx="2" fill="#FF6B00" opacity="0.6"/>
+      <text x="75" y="247" fill="#ccc" font-size="10">Required</text>
+      <rect x="150" y="238" width="10" height="10" rx="2" fill="#6B5BFF" opacity="0.6"/>
+      <text x="165" y="247" fill="#ccc" font-size="10">Your Level</text>
+    </svg>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">Skill Heatmap</div>
+  <div class="section-sub">Colour intensity = urgency to upskill</div>
+  <div class="heatmap">
+    <div class="hm-cell" style="background:#FF6B0066"><div class="hm-label">TensorFlow / PyTorch</div><div class="hm-score">42%</div></div>
+    <div class="hm-cell" style="background:#FF950044"><div class="hm-label">Scikit-learn</div><div class="hm-score">61%</div></div>
+    <div class="hm-cell" style="background:#20CF8C44"><div class="hm-label">Python</div><div class="hm-score">78%</div></div>
+    <div class="hm-cell" style="background:#FF6B0066"><div class="hm-label">MLOps</div><div class="hm-score">29%</div></div>
+    <div class="hm-cell" style="background:#FF950044"><div class="hm-label">SQL / DBs</div><div class="hm-score">55%</div></div>
+    <div class="hm-cell" style="background:#20CF8C44"><div class="hm-label">Maths / Stats</div><div class="hm-score">72%</div></div>
+    <div class="hm-cell" style="background:#6B5BFF44"><div class="hm-label">NLP</div><div class="hm-score">50%</div></div>
+    <div class="hm-cell" style="background:#FF6B0066"><div class="hm-label">Cloud / AWS</div><div class="hm-score">35%</div></div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">Gap Breakdown</div>
+  <div class="skill-row">
+    <span class="skill-icon">🔴</span>
+    <div class="skill-body">
+      <div class="skill-name"><span>TensorFlow / PyTorch</span><span class="gap-tag" style="background:#FF6B0022;color:#FF6B00">Critical Gap</span></div>
+      <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:42%;background:#FF6B00"></div></div>
+    </div>
+  </div>
+  <div class="skill-row">
+    <span class="skill-icon">🟠</span>
+    <div class="skill-body">
+      <div class="skill-name"><span>MLOps / Deployment</span><span class="gap-tag" style="background:#FF950022;color:#FF9500">High Gap</span></div>
+      <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:29%;background:#FF9500"></div></div>
+    </div>
+  </div>
+  <div class="skill-row">
+    <span class="skill-icon">🟡</span>
+    <div class="skill-body">
+      <div class="skill-name"><span>Cloud (AWS/GCP)</span><span class="gap-tag" style="background:#FFAA0022;color:#FFAA00">Medium Gap</span></div>
+      <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:35%;background:#FFAA00"></div></div>
+    </div>
+  </div>
+  <div class="skill-row">
+    <span class="skill-icon">🟢</span>
+    <div class="skill-body">
+      <div class="skill-name"><span>Python Programming</span><span class="gap-tag" style="background:#20CF8C22;color:#20CF8C">Strong</span></div>
+      <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:78%;background:#20CF8C"></div></div>
+    </div>
+  </div>
+</div>
+</body></html>

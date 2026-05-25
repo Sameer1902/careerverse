@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    background: #0A0A0F;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 40px;
+  }
+  .container { width: 920px; }
+  .title {
+    text-align: center;
+    font-size: 28px;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 6px;
+  }
+  .subtitle {
+    text-align: center;
+    color: #FF6B00;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 36px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  /* Stage cards */
+  .stages {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  .stage-card {
+    background: #111118;
+    border: 1px solid #22222E;
+    border-radius: 16px;
+    padding: 20px;
+    position: relative;
+  }
+  .stage-num {
+    position: absolute;
+    top: -10px;
+    left: 14px;
+    background: #FF6B00;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 800;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .stage-icon { font-size: 26px; margin-bottom: 8px; }
+  .stage-title { color: #fff; font-size: 14px; font-weight: 700; margin-bottom: 6px; }
+  .stage-items { color: #8888A0; font-size: 11.5px; line-height: 1.6; }
+  .stage-items li { list-style: none; position: relative; padding-left: 10px; }
+  .stage-items li::before { content: "\2022"; color: #FF6B00; position: absolute; left: 0; }
+
+  /* Section boxes */
+  .section {
+    background: #111118;
+    border: 1px solid #22222E;
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 20px;
+  }
+  .section-label {
+    color: #FF6B00;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 16px;
+    text-align: center;
+  }
+  .tech-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+  }
+  .tech-item {
+    background: #16161F;
+    border: 1px solid #22222E;
+    border-radius: 12px;
+    padding: 14px;
+    text-align: center;
+  }
+  .tech-icon { font-size: 22px; margin-bottom: 5px; }
+  .tech-name { color: #fff; font-size: 12px; font-weight: 600; }
+  .tech-desc { color: #8888A0; font-size: 10px; margin-top: 2px; }
+
+  /* Flow */
+  .flow { display: flex; align-items: center; gap: 10px; }
+  .flow-step {
+    flex: 1;
+    background: #16161F;
+    border: 1px solid #22222E;
+    border-radius: 12px;
+    padding: 14px 10px;
+    text-align: center;
+  }
+  .flow-step-icon { font-size: 22px; margin-bottom: 5px; }
+  .flow-step-name { color: #fff; font-size: 12px; font-weight: 600; }
+  .flow-step-desc { color: #8888A0; font-size: 10px; margin-top: 2px; }
+  .arrow-box { color: #FF6B0055; font-size: 20px; font-weight: 700; }
+
+  /* Bottom note */
+  .bottom-note {
+    text-align: center;
+    margin-top: 20px;
+    color: #444455;
+    font-size: 11px;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="title">CareerVerse Development Methodology</div>
+  <div class="subtitle">Actual Tech Stack — What Exists in the Codebase</div>
+
+  <div class="stages">
+    <div class="stage-card">
+      <div class="stage-num">1</div>
+      <div class="stage-icon">📋</div>
+      <div class="stage-title">Requirement Analysis</div>
+      <ul class="stage-items">
+        <li>User surveys & interviews</li>
+        <li>Feature prioritization (MoSCoW)</li>
+        <li>Functional & non-functional reqs</li>
+        <li>Competitor analysis</li>
+      </ul>
+    </div>
+    <div class="stage-card">
+      <div class="stage-num">2</div>
+      <div class="stage-icon">📚</div>
+      <div class="stage-title">Literature Review</div>
+      <ul class="stage-items">
+        <li>AI career matching research</li>
+        <li>Recommender systems study</li>
+        <li>Indian job market trends</li>
+        <li>Existing app benchmarking</li>
+      </ul>
+    </div>
+    <div class="stage-card">
+      <div class="stage-num">3</div>
+      <div class="stage-icon">🖼</div>
+      <div class="stage-title">System Design</div>
+      <ul class="stage-items">
+        <li>Architecture diagrams (MVC)</li>
+        <li>Database schema (Drizzle ORM)</li>
+        <li>API contract (REST)</li>
+        <li>UI/UX wireframes</li>
+      </ul>
+    </div>
+    <div class="stage-card">
+      <div class="stage-num">4</div>
+      <div class="stage-icon">🛠</div>
+      <div class="stage-title">Frontend Development</div>
+      <ul class="stage-items">
+        <li>React Native 0.81.5</li>
+        <li>Expo SDK 54 + Router v6</li>
+        <li>TypeScript 5.9 strict mode</li>
+        <li>Poppins font + dark theme</li>
+      </ul>
+    </div>
+    <div class="stage-card">
+      <div class="stage-num">5</div>
+      <div class="stage-icon">⚡</div>
+      <div class="stage-title">Backend Development</div>
+      <ul class="stage-items">
+        <li>Express 5 API server</li>
+        <li>Drizzle ORM + PostgreSQL</li>
+        <li>Multer file upload</li>
+        <li>Pino structured logging</li>
+      </ul>
+    </div>
+    <div class="stage-card">
+      <div class="stage-num">6</div>
+      <div class="stage-icon">🔄</div>
+      <div class="stage-title">Testing & Deployment</div>
+      <ul class="stage-items">
+        <li>Manual testing via Expo preview</li>
+        <li>TypeScript type checking</li>
+        <li>Replit cloud hosting</li>
+        <li>Hot reload development</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Tech Stack -->
+  <div class="section">
+    <div class="section-label">Technology Stack (from package.json)</div>
+    <div class="tech-grid">
+      <div class="tech-item">
+        <div class="tech-icon">⚛</div>
+        <div class="tech-name">React Native</div>
+        <div class="tech-desc">0.81.5</div>
+      </div>
+      <div class="tech-item">
+        <div class="tech-icon">🚀</div>
+        <div class="tech-name">Expo SDK</div>
+        <div class="tech-desc">54.0.27</div>
+      </div>
+      <div class="tech-item">
+        <div class="tech-icon">📁</div>
+        <div class="tech-name">TypeScript</div>
+        <div class="tech-desc">5.9 strict</div>
+      </div>
+      <div class="tech-item">
+        <div class="tech-icon">🎨</div>
+        <div class="tech-name">Poppins Font</div>
+        <div class="tech-desc">@expo-google-fonts</div>
+      </div>
+      <div class="tech-item">
+        <div class="tech-icon">🌐</div>
+        <div class="tech-name">Expo Router</div>
+        <div class="tech-desc">v6 file-based</div>
+      </div>
+      <div class="tech-item">
+        <div class="tech-icon">💾</div>
+        <div class="tech-name">AsyncStorage</div>
+        <div class="tech-desc">Local persistence</div>
+      </div>
+      <div class="tech-item">
+        <div class="tech-icon">✅</div>
+        <div class="tech-name">Zod</div>
+        <div class="tech-desc">Schema validation</div>
+      </div>
+      <div class="tech-item">
+        <div class="tech-icon">📊</div>
+        <div class="tech-name">Custom Charts</div>
+        <div class="tech-desc">React Native Views</div>
+      </div>
+      <div class="tech-item">
+        <div class="tech-icon">⚡</div>
+        <div class="tech-name">Express 5</div>
+        <div class="tech-desc">REST API server</div>
+      </div>
+      <div class="tech-item">
+        <div class="tech-icon">🐘</div>
+        <div class="tech-name">Drizzle ORM</div>
+        <div class="tech-desc">PostgreSQL</div>
+      </div>
+      <div class="tech-item">
+        <div class="tech-icon">📄</div>
+        <div class="tech-name">pdf-parse</div>
+        <div class="tech-desc">Resume text extraction</div>
+      </div>
+      <div class="tech-item">
+        <div class="tech-icon">📝</div>
+        <div class="tech-name">Multer</div>
+        <div class="tech-desc">File upload middleware</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- AI Flow -->
+  <div class="section">
+    <div class="section-label">AI Integration (OpenAI GPT-4o-mini)</div>
+    <div class="flow">
+      <div class="flow-step">
+        <div class="flow-step-icon">📱</div>
+        <div class="flow-step-name">Mobile App</div>
+        <div class="flow-step-desc">Expo SDK 54</div>
+      </div>
+      <div class="arrow-box">→</div>
+      <div class="flow-step">
+        <div class="flow-step-icon">⚡</div>
+        <div class="flow-step-name">Express 5</div>
+        <div class="flow-step-desc">Port 8080</div>
+      </div>
+      <div class="arrow-box">→</div>
+      <div class="flow-step">
+        <div class="flow-step-icon">🤖</div>
+        <div class="flow-step-name">GPT-4o-mini</div>
+        <div class="flow-step-desc">OpenAI API</div>
+      </div>
+      <div class="arrow-box">→</div>
+      <div class="flow-step">
+        <div class="flow-step-icon">📊</div>
+        <div class="flow-step-name">JSON Response</div>
+        <div class="flow-step-desc">ATS + matches</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Data Flow -->
+  <div class="section">
+    <div class="section-label">Data Flow & Storage</div>
+    <div class="flow">
+      <div class="flow-step">
+        <div class="flow-step-icon">📊</div>
+        <div class="flow-step-name">Assessment</div>
+        <div class="flow-step-desc">8-step quiz</div>
+      </div>
+      <div class="arrow-box">→</div>
+      <div class="flow-step">
+        <div class="flow-step-icon">🤖</div>
+        <div class="flow-step-name">Matching</div>
+        <div class="flow-step-desc">Scoring algorithm</div>
+      </div>
+      <div class="arrow-box">→</div>
+      <div class="flow-step">
+        <div class="flow-step-icon">💾</div>
+        <div class="flow-step-name">AsyncStorage</div>
+        <div class="flow-step-desc">Key-value local</div>
+      </div>
+      <div class="arrow-box">→</div>
+      <div class="flow-step">
+        <div class="flow-step-icon">🔄</div>
+        <div class="flow-step-name">Restore</div>
+        <div class="flow-step-desc">On app restart</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- App Features -->
+  <div class="section">
+    <div class="section-label">Implemented Features</div>
+    <div class="tech-grid">
+      <div class="tech-item">
+        <div class="tech-icon">🎯</div>
+        <div class="tech-name">Career Assessment</div>
+        <div class="tech-desc">8-step adaptive quiz</div>
+      </div>
+      <div class="tech-item">
+        <div class="tech-icon">📈</div>
+        <div class="tech-name">Career Matching</div>
+        <div class="tech-desc">AI scoring algorithm</div>
+      </div>
+      <div class="tech-item">
+        <div class="tech-icon">📄</div>
+        <div class="tech-name">Resume Analyzer</div>
+        <div class="tech-desc">ATS score + AI analysis</div>
+      </div>
+      <div class="tech-item">
+        <div class="tech-icon">🤖</div>
+        <div class="tech-name">CareerBot Chat</div>
+        <div class="tech-desc">OpenAI-powered Q&A</div>
+      </div>
+      <div class="tech-item">
+        <div class="tech-icon">👥</div>
+        <div class="tech-name">Mentor Booking</div>
+        <div class="tech-desc">8 industry experts</div>
+      </div>
+      <div class="tech-item">
+        <div class="tech-icon">⚖</div>
+        <div class="tech-name">Career Compare</div>
+        <div class="tech-desc">Side-by-side cards</div>
+      </div>
+      <div class="tech-item">
+        <div class="tech-icon">📊</div>
+        <div class="tech-name">Growth Charts</div>
+        <div class="tech-desc">Custom RN visuals</div>
+      </div>
+      <div class="tech-item">
+        <div class="tech-icon">📚</div>
+        <div class="tech-name">Skill Roadmaps</div>
+        <div class="tech-desc">Beginner to Advanced</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bottom-note">CareerVerse — Final Year Project | React Native + Express 5 + OpenAI | Replit Cloud</div>
+</div>
+</body>
+</html>

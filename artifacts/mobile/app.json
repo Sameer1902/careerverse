@@ -1,0 +1,49 @@
+{
+  "expo": {
+    "name": "CareerVerse",
+    "slug": "careerverse",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/icon.png",
+    "scheme": "careerverse",
+    "userInterfaceStyle": "dark",
+    "newArchEnabled": true,
+    "splash": {
+      "image": "./assets/images/icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#08080F"
+    },
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.careerverse.app"
+    },
+    "android": {
+      "package": "com.careerverse.app"
+    },
+    "web": {
+      "favicon": "./assets/images/icon.png",
+      "bundler": "metro",
+      "output": "single",
+      "name": "CareerVerse — AI Career Guidance for India",
+      "shortName": "CareerVerse",
+      "description": "AI-powered career guidance app for Indian students and young professionals. Take a free assessment, explore 100+ careers, compare salaries, connect with mentors, and get your personalised roadmap.",
+      "lang": "en",
+      "themeColor": "#FF6B00",
+      "backgroundColor": "#08080F"
+    },
+    "plugins": [
+      [
+        "expo-router",
+        {
+          "origin": "http://localhost:8081"
+        }
+      ],
+      "expo-font",
+      "expo-web-browser"
+    ],
+    "experiments": {
+      "typedRoutes": true,
+      "reactCompiler": true
+    }
+  }
+}

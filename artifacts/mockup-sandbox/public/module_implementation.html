@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    background: #0A0A0F;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 40px;
+  }
+  .container { width: 960px; }
+  .title {
+    text-align: center;
+    font-size: 28px;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 6px;
+  }
+  .subtitle {
+    text-align: center;
+    color: #FF6B00;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 32px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+
+  /* Layer box */
+  .layer {
+    background: #111118;
+    border: 1px solid #22222E;
+    border-radius: 18px;
+    padding: 24px;
+    margin-bottom: 18px;
+    position: relative;
+  }
+  .layer-label {
+    position: absolute;
+    top: -11px;
+    left: 20px;
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+  }
+  .layer-label.frontend { background: #61DAFB22; color: #61DAFB; border: 1px solid #61DAFB44; }
+  .layer-label.backend { background: #3ECF8E22; color: #3ECF8E; border: 1px solid #3ECF8E44; }
+  .layer-label.ai { background: #4285F422; color: #4285F4; border: 1px solid #4285F444; }
+  .layer-label.data { background: #FF950022; color: #FF9500; border: 1px solid #FF950044; }
+
+  .modules {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+  }
+  .module {
+    background: #16161F;
+    border: 1px solid #22222E;
+    border-radius: 14px;
+    padding: 16px;
+    text-align: center;
+    transition: all 0.2s;
+  }
+  .module:hover { border-color: #FF6B0055; }
+  .module-icon { font-size: 24px; margin-bottom: 6px; }
+  .module-name { color: #fff; font-size: 12px; font-weight: 600; }
+  .module-desc { color: #8888A0; font-size: 10px; margin-top: 2px; }
+  .module-file { color: #555566; font-size: 9px; margin-top: 4px; font-family: monospace; }
+
+  /* Tech row */
+  .tech-row {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 14px;
+    justify-content: center;
+  }
+  .tech-tag {
+    background: #0D0D14;
+    border: 1px solid #1E1E2A;
+    border-radius: 8px;
+    padding: 5px 12px;
+    color: #9999AA;
+    font-size: 11px;
+    font-family: monospace;
+  }
+
+  /* Arrows between layers */
+  .arrow-layer {
+    text-align: center;
+    color: #FF6B0055;
+    font-size: 20px;
+    margin: -6px 0;
+  }
+
+  /* Flow diagram */
+  .flow-diagram {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 14px;
+  }
+  .flow-node {
+    flex: 1;
+    background: #16161F;
+    border: 1px solid #22222E;
+    border-radius: 12px;
+    padding: 14px 10px;
+    text-align: center;
+  }
+  .flow-node-icon { font-size: 20px; margin-bottom: 4px; }
+  .flow-node-name { color: #fff; font-size: 11px; font-weight: 600; }
+  .flow-node-desc { color: #8888A0; font-size: 9px; }
+  .flow-arrow { color: #FF6B0055; font-size: 18px; }
+
+  /* API connections */
+  .api-section {
+    background: #0D0D14;
+    border: 1px solid #1E1E2A;
+    border-radius: 12px;
+    padding: 14px;
+    margin-top: 14px;
+  }
+  .api-title {
+    color: #FF6B00;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+  }
+  .api-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+  .api-item {
+    background: #16161F;
+    border: 1px solid #22222E;
+    border-radius: 8px;
+    padding: 8px 10px;
+    font-family: monospace;
+    font-size: 10px;
+    color: #ccc;
+  }
+  .api-method { color: #3ECF8E; font-weight: 700; }
+  .api-path { color: #9CDCFE; }
+
+  .bottom-note {
+    text-align: center;
+    margin-top: 20px;
+    color: #444455;
+    font-size: 11px;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="title">CareerVerse Module Level Implementation</div>
+  <div class="subtitle">Frontend Modules — What Exists in the Codebase</div>
+
+  <!-- Frontend Modules -->
+  <div class="layer">
+    <div class="layer-label frontend">Presentation Layer (Mobile App)</div>
+    <div class="modules">
+      <div class="module">
+        <div class="module-icon">🎨</div>
+        <div class="module-name">Home Dashboard</div>
+        <div class="module-desc">Career cards, streak, quick actions</div>
+        <div class="module-file">(tabs)/index.tsx</div>
+      </div>
+      <div class="module">
+        <div class="module-icon">🔍</div>
+        <div class="module-name">Explore Careers</div>
+        <div class="module-desc">Search + filter by category</div>
+        <div class="module-file">(tabs)/explore.tsx</div>
+      </div>
+      <div class="module">
+        <div class="module-icon">⚖</div>
+        <div class="module-name">Career Compare</div>
+        <div class="module-desc">Side-by-side salary/growth cards</div>
+        <div class="module-file">(tabs)/compare.tsx</div>
+      </div>
+      <div class="module">
+        <div class="module-icon">👥</div>
+        <div class="module-name">Mentor Booking</div>
+        <div class="module-desc">8 experts with booking CTA</div>
+        <div class="module-file">(tabs)/mentors.tsx</div>
+      </div>
+      <div class="module">
+        <div class="module-icon">🎯</div>
+        <div class="module-name">Assessment Quiz</div>
+        <div class="module-desc">8-step adaptive questions</div>
+        <div class="module-file">assessment/[step].tsx</div>
+      </div>
+      <div class="module">
+        <div class="module-icon">📊</div>
+        <div class="module-name">Match Results</div>
+        <div class="module-desc">AI-scored career rankings</div>
+        <div class="module-file">assessment/results.tsx</div>
+      </div>
+      <div class="module">
+        <div class="module-icon">📖</div>
+        <div class="module-name">Career Detail</div>
+        <div class="module-desc">Overview/Growth/Skills/Roadmap</div>
+        <div class="module-file">career/[id].tsx</div>
+      </div>
+      <div class="module">
+        <div class="module-icon">📄</div>
+        <div class="module-name">Resume Analyzer</div>
+        <div class="module-desc">Upload + AI ATS analysis</div>
+        <div class="module-file">resume.tsx</div>
+      </div>
+      <div class="module">
+        <div class="module-icon">🤖</div>
+        <div class="module-name">CareerBot Chat</div>
+        <div class="module-desc">OpenAI-powered Q&A</div>
+        <div class="module-file">chatbot.tsx</div>
+      </div>
+      <div class="module">
+        <div class="module-icon">📖</div>
+        <div class="module-name">Eligibility Test</div>
+        <div class="module-desc">AI-generated career quiz</div>
+        <div class="module-file">career/test/[id].tsx</div>
+      </div>
+      <div class="module">
+        <div class="module-icon">👤</div>
+        <div class="module-name">User Profile</div>
+        <div class="module-desc">Saved careers, streak, settings</div>
+        <div class="module-file">(tabs)/profile.tsx</div>
+      </div>
+      <div class="module">
+        <div class="module-icon">📊</div>
+        <div class="module-name">Custom Charts</div>
+        <div class="module-desc">Bubble, Waffle, Radial, Column</div>
+        <div class="module-file">career/[id].tsx</div>
+      </div>
+    </div>
+    <div class="tech-row">
+      <div class="tech-tag">React Native 0.81.5</div>
+      <div class="tech-tag">Expo SDK 54</div>
+      <div class="tech-tag">TypeScript 5.9</div>
+      <div class="tech-tag">Expo Router v6</div>
+      <div class="tech-tag">AsyncStorage</div>
+      <div class="tech-tag">Zod</div>
+      <div class="tech-tag">Poppins Font</div>
+      <div class="tech-tag">Dark Theme</div>
+    </div>
+  </div>
+
+  <div class="arrow-layer">↓ REST API Calls ↓</div>
+
+  <!-- Backend -->
+  <div class="layer">
+    <div class="layer-label backend">Application Layer (API Server)</div>
+    <div class="modules">
+      <div class="module">
+        <div class="module-icon">⚡</div>
+        <div class="module-name">Express 5 Server</div>
+        <div class="module-desc">Node.js REST API on port 8080</div>
+        <div class="module-file">api-server/src/index.ts</div>
+      </div>
+      <div class="module">
+        <div class="module-icon">📄</div>
+        <div class="module-name">Resume Analysis API</div>
+        <div class="module-desc">PDF parse + OpenAI analysis</div>
+        <div class="module-file">routes/resume.ts</div>
+      </div>
+      <div class="module">
+        <div class="module-icon">📖</div>
+        <div class="module-name">Eligibility Test API</div>
+        <div class="module-desc">AI-generated quiz questions</div>
+        <div class="module-file">routes/careerTest.ts</div>
+      </div>
+      <div class="module">
+        <div class="module-icon">💾</div>
+        <div class="module-name">File Upload</div>
+        <div class="module-desc">Multer + memory storage</div>
+        <div class="module-file">Multer middleware</div>
+      </div>
+    </div>
+    <div class="api-section">
+      <div class="api-title">API Endpoints</div>
+      <div class="api-grid">
+        <div class="api-item"><span class="api-method">POST</span> <span class="api-path">/api/resume/analyze</span></div>
+        <div class="api-item"><span class="api-method">POST</span> <span class="api-path">/api/career/eligibility-test</span></div>
+        <div class="api-item"><span class="api-method">GET</span> <span class="api-path">/api/healthz</span></div>
+      </div>
+    </div>
+    <div class="tech-row">
+      <div class="tech-tag">Express 5</div>
+      <div class="tech-tag">Drizzle ORM</div>
+      <div class="tech-tag">PostgreSQL</div>
+      <div class="tech-tag">Multer</div>
+      <div class="tech-tag">pdf-parse</div>
+      <div class="tech-tag">mammoth</div>
+      <div class="tech-tag">Pino Logger</div>
+    </div>
+  </div>
+
+  <div class="arrow-layer">↓ OpenAI API ↓</div>
+
+  <!-- AI -->
+  <div class="layer">
+    <div class="layer-label ai">AI Inference Layer</div>
+    <div class="flow-diagram">
+      <div class="flow-node">
+        <div class="flow-node-icon">📱</div>
+        <div class="flow-node-name">User Input</div>
+        <div class="flow-node-desc">Resume / Chat / Quiz</div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-node">
+        <div class="flow-node-icon">⚡</div>
+        <div class="flow-node-name">Express 5</div>
+        <div class="flow-node-desc">Route handler</div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-node">
+        <div class="flow-node-icon">🤖</div>
+        <div class="flow-node-name">GPT-4o-mini</div>
+        <div class="flow-node-desc">OpenAI API</div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-node">
+        <div class="flow-node-icon">📊</div>
+        <div class="flow-node-name">JSON Response</div>
+        <div class="flow-node-desc">ATS / Matches / Quiz</div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-node">
+        <div class="flow-node-icon">📱</div>
+        <div class="flow-node-name">Mobile UI</div>
+        <div class="flow-node-desc">Render results</div>
+      </div>
+    </div>
+    <div class="tech-row">
+      <div class="tech-tag">OpenAI GPT-4o-mini</div>
+      <div class="tech-tag">JSON Object Response</div>
+      <div class="tech-tag">Bearer Token Auth</div>
+      <div class="tech-tag">System Prompt Engineering</div>
+    </div>
+  </div>
+
+  <div class="arrow-layer">↓ Data Persistence ↓</div>
+
+  <!-- Data -->
+  <div class="layer">
+    <div class="layer-label data">Data Layer</div>
+    <div class="modules">
+      <div class="module">
+        <div class="module-icon">💾</div>
+        <div class="module-name">AsyncStorage</div>
+        <div class="module-desc">Local key-value persistence</div>
+        <div class="module-file">@react-native-async-storage</div>
+      </div>
+      <div class="module">
+        <div class="module-icon">🐘</div>
+        <div class="module-name">Drizzle ORM</div>
+        <div class="module-desc">Type-safe PostgreSQL</div>
+        <div class="module-file">lib/db/schema</div>
+      </div>
+      <div class="module">
+        <div class="module-icon">📝</div>
+        <div class="module-name">Static Data</div>
+        <div class="module-desc">careers.ts, mentors.ts</div>
+        <div class="module-file">data/*.ts</div>
+      </div>
+      <div class="module">
+        <div class="module-icon">🔄</div>
+        <div class="module-name">AppContext</div>
+        <div class="module-desc">React Context + hooks</div>
+        <div class="module-file">context/AppContext.tsx</div>
+      </div>
+    </div>
+    <div class="tech-row">
+      <div class="tech-tag">AsyncStorage</div>
+      <div class="tech-tag">PostgreSQL</div>
+      <div class="tech-tag">Drizzle ORM</div>
+      <div class="tech-tag">React Context</div>
+    </div>
+  </div>
+
+  <div class="bottom-note">CareerVerse — 12 Frontend Modules | 3 API Routes | OpenAI GPT-4o-mini | React Native + Express 5</div>
+</div>
+</body>
+</html>

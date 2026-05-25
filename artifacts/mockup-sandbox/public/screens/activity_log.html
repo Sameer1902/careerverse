@@ -1,0 +1,67 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8"><style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{width:402px;min-height:874px;background:#0A0A0F;font-family:'Segoe UI',sans-serif;padding:54px 0 40px}
+.header{padding:0 20px;display:flex;align-items:center;gap:14px;margin-bottom:20px}
+.back{font-size:22px;color:#fff}.title{font-size:20px;font-weight:700;color:#fff}
+/* streak card */
+.streak-card{margin:0 20px 20px;background:linear-gradient(135deg,#FF6B00,#FF9500);border-radius:18px;padding:20px;display:flex;align-items:center;gap:16px}
+.streak-icon{font-size:40px}
+.streak-body .streak-val{font-size:32px;font-weight:800;color:#fff}
+.streak-body .streak-label{font-size:13px;color:rgba(255,255,255,0.8)}
+.streak-body .streak-sub{font-size:11px;color:rgba(255,255,255,0.65);margin-top:2px}
+/* stats row */
+.stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;padding:0 20px;margin-bottom:20px}
+.stat-card{background:#111118;border:1px solid #22222E;border-radius:14px;padding:14px;text-align:center}
+.stat-num{font-size:22px;font-weight:800;margin-bottom:3px}
+.stat-lbl{font-size:10px;color:#8888A0}
+/* timeline */
+.section-title{padding:0 20px;font-size:13px;font-weight:700;color:#8888A0;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:12px}
+.timeline{padding:0 20px}
+.tl-item{display:flex;gap:12px;margin-bottom:16px}
+.tl-line-wrap{display:flex;flex-direction:column;align-items:center;gap:0}
+.tl-dot{width:12px;height:12px;border-radius:50%;flex-shrink:0;margin-top:2px}
+.tl-line{width:2px;flex:1;background:#22222E;margin-top:4px}
+.tl-body{flex:1;background:#111118;border:1px solid #22222E;border-radius:12px;padding:12px;margin-bottom:0}
+.tl-title{font-size:13px;font-weight:600;color:#fff;margin-bottom:3px}
+.tl-sub{font-size:11px;color:#8888A0;line-height:1.5}
+.tl-time{font-size:10px;color:#555566;margin-top:5px}
+.tl-badge{display:inline-flex;align-items:center;font-size:10px;padding:2px 8px;border-radius:6px;font-weight:600;margin-top:4px}
+</style></head><body>
+<div class="header"><span class="back">←</span><span class="title">Activity Log</span></div>
+<div class="streak-card">
+  <div class="streak-icon">🔥</div>
+  <div class="streak-body">
+    <div class="streak-val">7 Day Streak</div>
+    <div class="streak-label">You're on a roll!</div>
+    <div class="streak-sub">Last active: Today · 2:45 PM</div>
+  </div>
+</div>
+<div class="stats-row">
+  <div class="stat-card"><div class="stat-num" style="color:#FF6B00">24</div><div class="stat-lbl">Careers Explored</div></div>
+  <div class="stat-card"><div class="stat-num" style="color:#6B5BFF">8</div><div class="stat-lbl">Quizzes Taken</div></div>
+  <div class="stat-card"><div class="stat-num" style="color:#20CF8C">3</div><div class="stat-lbl">Mentors Booked</div></div>
+</div>
+<div class="section-title">Recent Activity</div>
+<div class="timeline">
+  <div class="tl-item">
+    <div class="tl-line-wrap"><div class="tl-dot" style="background:#FF6B00"></div><div class="tl-line"></div></div>
+    <div class="tl-body"><div class="tl-title">🏆 Assessment Completed</div><div class="tl-sub">8-step AI career assessment. Matched to AI/ML Engineer (94%)</div><div class="tl-time">Today · 2:30 PM</div><span class="tl-badge" style="background:#FF6B0020;color:#FF6B00">+50 XP</span></div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-line-wrap"><div class="tl-dot" style="background:#6B5BFF"></div><div class="tl-line"></div></div>
+    <div class="tl-body"><div class="tl-title">📊 Resume Analyzed</div><div class="tl-sub">ATS Score: 73/100 · 4 skill gaps identified for Data Scientist</div><div class="tl-time">Today · 11:15 AM</div><span class="tl-badge" style="background:#6B5BFF20;color:#6B5BFF">+30 XP</span></div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-line-wrap"><div class="tl-dot" style="background:#20CF8C"></div><div class="tl-line"></div></div>
+    <div class="tl-body"><div class="tl-title">📖 Career Quiz — AI/ML Engineer</div><div class="tl-sub">Score: 148/190 · Rank #5 this week</div><div class="tl-time">Yesterday · 6:00 PM</div><span class="tl-badge" style="background:#20CF8C20;color:#20CF8C">+25 XP</span></div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-line-wrap"><div class="tl-dot" style="background:#FF9500"></div><div class="tl-line"></div></div>
+    <div class="tl-body"><div class="tl-title">👥 Mentor Session Booked</div><div class="tl-sub">Priya Menon · Friday 4:00 PM · Google AI Lead</div><div class="tl-time">Yesterday · 2:00 PM</div><span class="tl-badge" style="background:#FF950020;color:#FF9500">Upcoming</span></div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-line-wrap"><div class="tl-dot" style="background:#4285F4"></div></div>
+    <div class="tl-body"><div class="tl-title">💬 CareerBot Chat</div><div class="tl-sub">Asked 6 questions about ML career path and FAANG salary expectations</div><div class="tl-time">Monday · 8:30 AM</div><span class="tl-badge" style="background:#4285F420;color:#4285F4">+10 XP</span></div>
+  </div>
+</div>
+</body></html>

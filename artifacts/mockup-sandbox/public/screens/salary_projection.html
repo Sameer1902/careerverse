@@ -1,0 +1,77 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8"><style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{width:402px;min-height:874px;background:#0A0A0F;font-family:'Segoe UI',sans-serif;padding:54px 0 40px}
+.header{padding:0 20px;display:flex;align-items:center;gap:14px;margin-bottom:20px}
+.back{font-size:22px;color:#fff}
+.title{font-size:18px;font-weight:700;color:#fff}
+.section{padding:0 20px;margin-bottom:20px}
+.section-title{font-size:15px;font-weight:700;color:#fff;margin-bottom:4px}
+.section-sub{font-size:11px;color:#8888A0;margin-bottom:14px}
+/* Chart card */
+.chart-card{background:#111118;border:1px solid #22222E;border-radius:18px;padding:20px}
+.chart-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px}
+.chart-val{font-size:28px;font-weight:800;color:#FF6B00}
+.chart-label{font-size:11px;color:#8888A0;margin-top:2px}
+.chart-badge{background:#FF6B0015;border:1px solid #FF6B0030;border-radius:8px;padding:4px 10px;color:#FF6B00;font-size:11px;font-weight:600}
+/* Bar chart */
+.bar-chart{display:flex;align-items:flex-end;gap:8px;height:120px;margin-top:4px}
+.bar-col{flex:1;display:flex;flex-direction:column;align-items:center;gap:6px}
+.bar-rect{width:100%;border-radius:6px 6px 0 0;background:linear-gradient(180deg,#FF6B00,#FF9500)}
+.bar-rect.faded{background:linear-gradient(180deg,#2A2A3A,#1A1A26)}
+.bar-year{font-size:10px;color:#8888A0;margin-top:4px}
+.bar-val{font-size:10px;color:#FF6B00;font-weight:600}
+/* Salary grid */
+.salary-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
+.salary-card{background:#16161F;border:1px solid #22222E;border-radius:14px;padding:14px;text-align:center}
+.salary-icon{font-size:22px;margin-bottom:6px}
+.salary-role{font-size:11px;color:#8888A0;margin-bottom:4px}
+.salary-amt{font-size:17px;font-weight:800;color:#fff}
+.salary-yoe{font-size:10px;color:#8888A0;margin-top:2px}
+/* Comparison bar */
+.comp-item{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.comp-label{width:110px;font-size:12px;color:#ccc;text-align:right}
+.comp-bar-wrap{flex:1;height:28px;background:#1A1A26;border-radius:6px;overflow:hidden}
+.comp-bar-fill{height:100%;border-radius:6px;display:flex;align-items:center;justify-content:flex-end;padding-right:8px;font-size:11px;font-weight:700;color:#fff}
+</style></head><body>
+<div class="header"><span class="back">←</span><span class="title">Salary Projection</span></div>
+
+<div class="section">
+  <div class="section-title">AI / ML Engineer — 10 Year Forecast</div>
+  <div class="section-sub">India market projections · Median salary trajectory</div>
+  <div class="chart-card">
+    <div class="chart-top">
+      <div><div class="chart-val">₹40 LPA</div><div class="chart-label">Projected at Year 10</div></div>
+      <div class="chart-badge">↑ 233% Growth</div>
+    </div>
+    <div class="bar-chart">
+      <div class="bar-col"><div class="bar-val">₹12L</div><div class="bar-rect" style="height:36px"></div><div class="bar-year">Y1</div></div>
+      <div class="bar-col"><div class="bar-val">₹15L</div><div class="bar-rect" style="height:46px"></div><div class="bar-year">Y2</div></div>
+      <div class="bar-col"><div class="bar-val">₹19L</div><div class="bar-rect" style="height:57px"></div><div class="bar-year">Y3</div></div>
+      <div class="bar-col"><div class="bar-val">₹23L</div><div class="bar-rect" style="height:68px"></div><div class="bar-year">Y4</div></div>
+      <div class="bar-col"><div class="bar-val">₹28L</div><div class="bar-rect" style="height:82px"></div><div class="bar-year">Y5</div></div>
+      <div class="bar-col"><div class="bar-val">₹32L</div><div class="bar-rect faded" style="height:96px"></div><div class="bar-year">Y7</div></div>
+      <div class="bar-col"><div class="bar-val">₹40L</div><div class="bar-rect faded" style="height:120px;background:linear-gradient(180deg,#FF6B0055,#FF950033)"></div><div class="bar-year">Y10</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">Salary by Experience</div>
+  <div class="salary-grid">
+    <div class="salary-card"><div class="salary-icon">🌱</div><div class="salary-role">Fresher (0–1 yr)</div><div class="salary-amt" style="color:#FF6B00">₹8–12 LPA</div><div class="salary-yoe">Entry Level</div></div>
+    <div class="salary-card"><div class="salary-icon">📈</div><div class="salary-role">Mid (2–4 yr)</div><div class="salary-amt" style="color:#FF9500">₹15–25 LPA</div><div class="salary-yoe">Mid Level</div></div>
+    <div class="salary-card"><div class="salary-icon">⭐</div><div class="salary-role">Senior (5–8 yr)</div><div class="salary-amt" style="color:#6B5BFF">₹25–40 LPA</div><div class="salary-yoe">Senior</div></div>
+    <div class="salary-card"><div class="salary-icon">🏆</div><div class="salary-role">Lead (8+ yr)</div><div class="salary-amt" style="color:#20CF8C">₹40–80 LPA</div><div class="salary-yoe">Principal/Staff</div></div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">Company-wise Salary Range</div>
+  <div class="section-sub">Top Indian & global companies · Annual package</div>
+  <div class="comp-item"><div class="comp-label">Google India</div><div class="comp-bar-wrap"><div class="comp-bar-fill" style="width:95%;background:linear-gradient(90deg,#FF6B00,#FF9500)">₹60L+</div></div></div>
+  <div class="comp-item"><div class="comp-label">Microsoft</div><div class="comp-bar-wrap"><div class="comp-bar-fill" style="width:85%;background:linear-gradient(90deg,#6B5BFF,#8B7BFF)">₹48L</div></div></div>
+  <div class="comp-item"><div class="comp-label">Flipkart</div><div class="comp-bar-wrap"><div class="comp-bar-fill" style="width:70%;background:linear-gradient(90deg,#FF9500,#FFAA00)">₹38L</div></div></div>
+  <div class="comp-item"><div class="comp-label">Zomato</div><div class="comp-bar-wrap"><div class="comp-bar-fill" style="width:58%;background:linear-gradient(90deg,#20CF8C,#00B377)">₹32L</div></div></div>
+  <div class="comp-item"><div class="comp-label">TCS</div><div class="comp-bar-wrap"><div class="comp-bar-fill" style="width:40%;background:linear-gradient(90deg,#4285F4,#5C9BFF)">₹22L</div></div></div>
+</div>
+</body></html>

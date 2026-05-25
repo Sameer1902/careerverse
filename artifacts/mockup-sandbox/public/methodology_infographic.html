@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    background: #0A0A0F;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 40px;
+  }
+  .container {
+    width: 1000px;
+  }
+  .title {
+    text-align: center;
+    font-size: 30px;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 8px;
+    letter-spacing: -0.5px;
+  }
+  .subtitle {
+    text-align: center;
+    color: #FF6B00;
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 36px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  .stages {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  .stage-card {
+    background: #111118;
+    border: 1px solid #22222E;
+    border-radius: 16px;
+    padding: 20px;
+    position: relative;
+    transition: all 0.2s;
+  }
+  .stage-card:hover {
+    border-color: #FF6B0055;
+  }
+  .stage-num {
+    position: absolute;
+    top: -10px;
+    left: 16px;
+    background: #FF6B00;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 800;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .stage-icon {
+    font-size: 28px;
+    margin-bottom: 10px;
+  }
+  .stage-title {
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .stage-items {
+    color: #8888A0;
+    font-size: 11.5px;
+    line-height: 1.6;
+  }
+  .stage-items li {
+    list-style: none;
+    position: relative;
+    padding-left: 12px;
+  }
+  .stage-items li::before {
+    content: "•";
+    color: #FF6B00;
+    position: absolute;
+    left: 0;
+  }
+
+  /* Tech Stack Section */
+  .tech-section {
+    background: #111118;
+    border: 1px solid #22222E;
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 24px;
+  }
+  .section-label {
+    color: #FF6B00;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 16px;
+    text-align: center;
+  }
+  .tech-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+  }
+  .tech-item {
+    background: #16161F;
+    border: 1px solid #22222E;
+    border-radius: 12px;
+    padding: 14px;
+    text-align: center;
+  }
+  .tech-icon {
+    font-size: 24px;
+    margin-bottom: 6px;
+  }
+  .tech-name {
+    color: #fff;
+    font-size: 13px;
+    font-weight: 600;
+  }
+  .tech-desc {
+    color: #8888A0;
+    font-size: 10.5px;
+    margin-top: 2px;
+  }
+
+  /* AI Engine Section */
+  .ai-section {
+    background: #111118;
+    border: 1px solid #22222E;
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 24px;
+  }
+  .ai-flow {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .ai-module {
+    flex: 1;
+    background: #16161F;
+    border: 1px solid #22222E;
+    border-radius: 12px;
+    padding: 16px;
+    text-align: center;
+  }
+  .ai-module-icon {
+    font-size: 28px;
+    margin-bottom: 8px;
+  }
+  .ai-module-title {
+    color: #fff;
+    font-size: 13px;
+    font-weight: 600;
+  }
+  .ai-module-desc {
+    color: #8888A0;
+    font-size: 11px;
+    margin-top: 3px;
+  }
+  .arrow-box {
+    color: #FF6B0055;
+    font-size: 22px;
+    font-weight: 700;
+  }
+
+  /* Testing Section */
+  .test-section {
+    background: #111118;
+    border: 1px solid #22222E;
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 24px;
+  }
+  .test-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+  }
+  .test-card {
+    background: #16161F;
+    border: 1px solid #22222E;
+    border-radius: 12px;
+    padding: 14px;
+    text-align: center;
+  }
+  .test-icon {
+    font-size: 22px;
+    margin-bottom: 6px;
+  }
+  .test-name {
+    color: #fff;
+    font-size: 12px;
+    font-weight: 600;
+  }
+  .test-desc {
+    color: #8888A0;
+    font-size: 10px;
+    margin-top: 2px;
+  }
+
+  /* Deployment Section */
+  .deploy-section {
+    background: #111118;
+    border: 1px solid #22222E;
+    border-radius: 16px;
+    padding: 24px;
+  }
+  .deploy-flow {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .deploy-step {
+    flex: 1;
+    background: #16161F;
+    border: 1px solid #22222E;
+    border-radius: 12px;
+    padding: 14px;
+    text-align: center;
+  }
+  .deploy-step-icon {
+    font-size: 22px;
+    margin-bottom: 6px;
+  }
+  .deploy-step-name {
+    color: #fff;
+    font-size: 12px;
+    font-weight: 600;
+  }
+  .deploy-step-desc {
+    color: #8888A0;
+    font-size: 10px;
+    margin-top: 2px;
+  }
+
+  /* Agile badge */
+  .agile-badge {
+    text-align: center;
+    margin-top: 24px;
+    padding: 14px;
+    background: #FF6B0018;
+    border: 1px solid #FF6B0033;
+    border-radius: 12px;
+  }
+  .agile-badge-text {
+    color: #FF6B00;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+  }
+  .agile-badge-sub {
+    color: #8888A0;
+    font-size: 11px;
+    margin-top: 4px;
+  }
+
+  /* Bottom label */
+  .bottom-note {
+    text-align: center;
+    margin-top: 20px;
+    color: #555566;
+    font-size: 12px;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="title">CareerVerse Development Methodology</div>
+  <div class="subtitle">AI-Powered Career Recommendation Platform — SDLC</div>
+
+  <!-- Phase 1-4: Planning & Design -->
+  <div class="stages">
+    <div class="stage-card">
+      <div class="stage-num">1</div>
+      <div class="stage-icon">📋</div>
+      <div class="stage-title">Requirement Analysis</div>
+      <ul class="stage-items">
+        <li>User surveys & interviews</li>
+        <li>Feature prioritization (MoSCoW)</li>
+        <li>Functional & non-functional reqs</li>
+        <li>Competitor analysis</li>
+      </ul>
+    </div>
+    <div class="stage-card">
+      <div class="stage-num">2</div>
+      <div class="stage-icon">📚</div>
+      <div class="stage-title">Literature Review</div>
+      <ul class="stage-items">
+        <li>AI career matching research</li>
+        <li>Recommender systems study</li>
+        <li>Indian job market trends</li>
+        <li>Existing app benchmarking</li>
+      </ul>
+    </div>
+    <div class="stage-card">
+      <div class="stage-num">3</div>
+      <div class="stage-icon">🖼</div>
+      <div class="stage-title">System Design</div>
+      <ul class="stage-items">
+        <li>Architecture diagrams (MVC)</li>
+        <li>Database schema design</li>
+        <li>API contract (REST + OpenAPI)</li>
+        <li>UI/UX wireframes (Figma)</li>
+      </ul>
+    </div>
+    <div class="stage-card">
+      <div class="stage-num">4</div>
+      <div class="stage-icon">🛠</div>
+      <div class="stage-title">Development</div>
+      <ul class="stage-items">
+        <li>Frontend (React Native + Expo)</li>
+        <li>Backend (Express 5 + Node.js)</li>
+        <li>Database (Supabase + PostgreSQL)</li>
+        <li>AI Engine (Gemini API)</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Tech Stack Detail -->
+  <div class="tech-section">
+    <div class="section-label">Technology Stack</div>
+    <div class="tech-grid">
+      <div class="tech-item">
+        <div class="tech-icon">⚛</div>
+        <div class="tech-name">React Native</div>
+        <div class="tech-desc">Expo SDK 54</div>
+      </div>
+      <div class="tech-item">
+        <div class="tech-icon">📁</div>
+        <div class="tech-name">TypeScript</div>
+        <div class="tech-desc">Strict type safety</div>
+      </div>
+      <div class="tech-item">
+        <div class="tech-icon">🚀</div>
+        <div class="tech-name">Expo Router v6</div>
+        <div class="tech-desc">File-based routing</div>
+      </div>
+      <div class="tech-item">
+        <div class="tech-icon">⚡</div>
+        <div class="tech-name">Express 5</div>
+        <div class="tech-desc">REST API server</div>
+      </div>
+      <div class="tech-item">
+        <div class="tech-icon">🐘</div>
+        <div class="tech-name">Supabase</div>
+        <div class="tech-desc">Auth + Database</div>
+      </div>
+      <div class="tech-item">
+        <div class="tech-icon">📂</div>
+        <div class="tech-name">PostgreSQL</div>
+        <div class="tech-desc">Relational data</div>
+      </div>
+      <div class="tech-item">
+        <div class="tech-icon">✨</div>
+        <div class="tech-name">Gemini AI</div>
+        <div class="tech-desc">LLM career engine</div>
+      </div>
+      <div class="tech-item">
+        <div class="tech-icon">📊</div>
+        <div class="tech-name">Recharts</div>
+        <div class="tech-desc">Data visualization</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- AI Engine -->
+  <div class="ai-section">
+    <div class="section-label">AI Engine Modules</div>
+    <div class="ai-flow">
+      <div class="ai-module">
+        <div class="ai-module-icon">🎯</div>
+        <div class="ai-module-title">Recommendation Engine</div>
+        <div class="ai-module-desc">Matches users to careers via AI scoring</div>
+      </div>
+      <div class="arrow-box">→</div>
+      <div class="ai-module">
+        <div class="ai-module-icon">🤖</div>
+        <div class="ai-module-title">CareerBot Chat</div>
+        <div class="ai-module-desc">Gemini-powered Q&A assistant</div>
+      </div>
+      <div class="arrow-box">→</div>
+      <div class="ai-module">
+        <div class="ai-module-icon">📄</div>
+        <div class="ai-module-title">Resume Analyzer</div>
+        <div class="ai-module-desc">ATS score + skill extraction</div>
+      </div>
+      <div class="arrow-box">→</div>
+      <div class="ai-module">
+        <div class="ai-module-icon">📈</div>
+        <div class="ai-module-title">Eligibility Test</div>
+        <div class="ai-module-desc">AI-generated career quizzes</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Data Processing & ETL -->
+  <div class="tech-section">
+    <div class="section-label">Data Processing & ETL Pipeline</div>
+    <div class="deploy-flow">
+      <div class="deploy-step">
+        <div class="deploy-step-icon">📤</div>
+        <div class="deploy-step-name">Data Ingestion</div>
+        <div class="deploy-step-desc">Resume upload, user input</div>
+      </div>
+      <div class="arrow-box">→</div>
+      <div class="deploy-step">
+        <div class="deploy-step-icon">🔧</div>
+        <div class="deploy-step-name">Preprocessing</div>
+        <div class="deploy-step-desc">PDF parsing, OCR, cleaning</div>
+      </div>
+      <div class="arrow-box">→</div>
+      <div class="deploy-step">
+        <div class="deploy-step-icon">🤖</div>
+        <div class="deploy-step-name">AI Processing</div>
+        <div class="deploy-step-desc">Gemini API analysis</div>
+      </div>
+      <div class="arrow-box">→</div>
+      <div class="deploy-step">
+        <div class="deploy-step-icon">📁</div>
+        <div class="deploy-step-name">Storage</div>
+        <div class="deploy-step-desc">PostgreSQL + AsyncStorage</div>
+      </div>
+      <div class="arrow-box">→</div>
+      <div class="deploy-step">
+        <div class="deploy-step-icon">📊</div>
+        <div class="deploy-step-name">Visualization</div>
+        <div class="deploy-step-desc">Charts & match scores</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Testing -->
+  <div class="test-section">
+    <div class="section-label">Testing & Validation</div>
+    <div class="test-grid">
+      <div class="test-card">
+        <div class="test-icon">💊</div>
+        <div class="test-name">Unit Testing</div>
+        <div class="test-desc">Jest + React Testing Library</div>
+      </div>
+      <div class="test-card">
+        <div class="test-icon">🔗</div>
+        <div class="test-name">Integration Testing</div>
+        <div class="test-desc">API contract validation</div>
+      </div>
+      <div class="test-card">
+        <div class="test-icon">⚡</div>
+        <div class="test-name">Performance Testing</div>
+        <div class="test-desc">Load testing with k6</div>
+      </div>
+      <div class="test-card">
+        <div class="test-icon">👥</div>
+        <div class="test-name">UAT</div>
+        <div class="test-desc">Beta testing with students</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Deployment -->
+  <div class="deploy-section">
+    <div class="section-label">Deployment & Maintenance</div>
+    <div class="deploy-flow">
+      <div class="deploy-step">
+        <div class="deploy-step-icon">🔧</div>
+        <div class="deploy-step-name">Optimization</div>
+        <div class="deploy-step-desc">Code splitting, caching</div>
+      </div>
+      <div class="arrow-box">→</div>
+      <div class="deploy-step">
+        <div class="deploy-step-icon">🚀</div>
+        <div class="deploy-step-name">Deployment</div>
+        <div class="deploy-step-desc">Replit cloud hosting</div>
+      </div>
+      <div class="arrow-box">→</div>
+      <div class="deploy-step">
+        <div class="deploy-step-icon">🔄</div>
+        <div class="deploy-step-name">CI/CD</div>
+        <div class="deploy-step-desc">Automated testing pipeline</div>
+      </div>
+      <div class="arrow-box">→</div>
+      <div class="deploy-step">
+        <div class="deploy-step-icon">📝</div>
+        <div class="deploy-step-name">Monitoring</div>
+        <div class="deploy-step-desc">Error tracking, analytics</div>
+      </div>
+      <div class="arrow-box">→</div>
+      <div class="deploy-step">
+        <div class="deploy-step-icon">🔧</div>
+        <div class="deploy-step-name">Maintenance</div>
+        <div class="deploy-step-desc">Updates & bug fixes</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Agile Badge -->
+  <div class="agile-badge">
+    <div class="agile-badge-text">Iterative Agile Development — Sprint-based Delivery</div>
+    <div class="agile-badge-sub">4-week sprints | Daily standups | Sprint reviews | Retrospectives</div>
+  </div>
+
+  <div class="bottom-note">CareerVerse — Final Year Project | AI-Powered Career Guidance for Indian Students</div>
+</div>
+</body>
+</html>

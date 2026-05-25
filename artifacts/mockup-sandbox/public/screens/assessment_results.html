@@ -1,0 +1,79 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8"><style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{width:402px;min-height:874px;background:#0A0A0F;font-family:'Segoe UI',sans-serif;padding:54px 0 40px;overflow-x:hidden}
+.header{padding:0 20px 0;display:flex;align-items:center;gap:14px;margin-bottom:18px}
+.back{font-size:22px;color:#fff}
+.engine-badge{margin-left:auto;display:flex;align-items:center;gap:6px;background:#FF6B0015;border:1px solid #FF6B0030;border-radius:20px;padding:4px 10px}
+.engine-dot{width:6px;height:6px;border-radius:50%;background:#FF6B00}
+.engine-text{font-size:10px;color:#FF6B00;font-weight:600}
+.hero{margin:0 20px 20px;background:linear-gradient(135deg,#FF6B00,#FF9500);border-radius:20px;padding:22px}
+.hero-label{font-size:11px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1.5px;font-weight:600;margin-bottom:4px}
+.hero-title{font-size:24px;font-weight:800;color:#fff;margin-bottom:2px}
+.hero-cat{font-size:13px;color:rgba(255,255,255,0.8);margin-bottom:14px}
+.hero-stats{display:flex;align-items:center}
+.stat{flex:1;text-align:center}
+.stat-val{font-size:20px;font-weight:800;color:#fff}
+.stat-lbl{font-size:11px;color:rgba(255,255,255,0.7)}
+.divv{width:1px;height:36px;background:rgba(255,255,255,0.3)}
+.model-scores{background:rgba(0,0,0,0.2);border-radius:10px;padding:10px;margin-top:12px;display:flex;justify-content:space-around}
+.ms-item{text-align:center}
+.ms-label{font-size:9px;color:rgba(255,255,255,0.55);font-weight:600;margin-bottom:3px}
+.ms-val{font-size:14px;font-weight:800;color:#fff}
+.hero-btn{display:flex;align-items:center;justify-content:center;gap:8px;background:#fff;border-radius:12px;padding:12px;margin-top:12px;cursor:pointer}
+.hero-btn-text{font-size:15px;font-weight:700;color:#FF6B00}
+.section{padding:0 20px;margin-bottom:16px}
+.section-title{font-size:18px;font-weight:700;color:#fff;margin-bottom:4px}
+.section-sub{font-size:12px;color:#8888A0;margin-bottom:12px}
+.card{background:#111118;border:1px solid #22222E;border-radius:16px;padding:16px;display:flex;align-items:center;gap:14px;margin-bottom:10px}
+.card-icon{width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+.card-body{flex:1}
+.card-title{font-size:14px;font-weight:600;color:#fff;margin-bottom:3px}
+.card-sub{font-size:11px;color:#8888A0}
+.card-badge{font-size:13px;font-weight:700;padding:4px 10px;border-radius:8px}
+.bar-wrap{margin-top:6px}
+.bar-bg{height:5px;background:#1A1A26;border-radius:3px;overflow:hidden}
+.bar-fill{height:100%;border-radius:3px}
+</style></head><body>
+<div class="header">
+  <span class="back">←</span>
+  <div class="engine-badge"><div class="engine-dot"></div><span class="engine-text">XGBoost + Ensemble</span></div>
+</div>
+<div class="hero">
+  <div class="hero-label">🏆 Best Match</div>
+  <div class="hero-title">AI / ML Engineer</div>
+  <div class="hero-cat">Technology · High Demand</div>
+  <div class="hero-stats">
+    <div class="stat"><div class="stat-val">94%</div><div class="stat-lbl">Match</div></div>
+    <div class="divv"></div>
+    <div class="stat"><div class="stat-val">₹12–40L</div><div class="stat-lbl">Salary</div></div>
+    <div class="divv"></div>
+    <div class="stat"><div class="stat-val">35%</div><div class="stat-lbl">Growth</div></div>
+  </div>
+  <div class="model-scores">
+    <div class="ms-item"><div class="ms-label">XGBoost</div><div class="ms-val">98%</div></div>
+    <div class="ms-item"><div class="ms-label">Rand. Forest</div><div class="ms-val">88%</div></div>
+    <div class="ms-item"><div class="ms-label">Neural Net</div><div class="ms-val">91%</div></div>
+    <div class="ms-item"><div class="ms-label">SVM</div><div class="ms-val">85%</div></div>
+  </div>
+  <div class="hero-btn"><span class="hero-btn-text">Explore This Career →</span></div>
+</div>
+<div class="section">
+  <div class="section-title">All Your Matches</div>
+  <div class="section-sub">Ranked by XGBoost · Random Forest · Neural Network · SVM</div>
+  <div class="card">
+    <div class="card-icon" style="background:#FF6B0018">📊</div>
+    <div class="card-body"><div class="card-title">Data Scientist</div><div class="card-sub">Technology · ₹10–30L</div><div class="bar-wrap"><div class="bar-bg"><div class="bar-fill" style="width:89%;background:#FF9500"></div></div></div></div>
+    <span class="card-badge" style="background:#FF950022;color:#FF9500">89%</span>
+  </div>
+  <div class="card">
+    <div class="card-icon" style="background:#6B5BFF18">💻</div>
+    <div class="card-body"><div class="card-title">Software Engineer</div><div class="card-sub">Technology · ₹8–35L</div><div class="bar-wrap"><div class="bar-bg"><div class="bar-fill" style="width:84%;background:#6B5BFF"></div></div></div></div>
+    <span class="card-badge" style="background:#6B5BFF22;color:#6B5BFF">84%</span>
+  </div>
+  <div class="card">
+    <div class="card-icon" style="background:#20CF8C18">📱</div>
+    <div class="card-body"><div class="card-title">Product Manager</div><div class="card-sub">Technology · ₹12–40L</div><div class="bar-wrap"><div class="bar-bg"><div class="bar-fill" style="width:79%;background:#20CF8C"></div></div></div></div>
+    <span class="card-badge" style="background:#20CF8C22;color:#20CF8C">79%</span>
+  </div>
+</div>
+</body></html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=402,initial-scale=1"><style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{width:402px;min-height:874px;background:#0A0A0F;font-family:'Segoe UI',sans-serif;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:50px 28px 40px}
+.header{text-align:center;margin-bottom:28px}
+.header h1{font-size:26px;font-weight:800;color:#fff}
+.header p{font-size:13px;color:#8888A0;margin-top:4px}
+.card{background:#111118;border:1px solid #22222E;border-radius:24px;padding:28px;width:100%}
+.field{margin-bottom:14px}
+.field label{color:#AAAACC;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:1px;display:block;margin-bottom:6px}
+.field-wrap{background:#16161F;border:1px solid #2A2A3A;border-radius:12px;padding:13px 16px;display:flex;align-items:center;gap:10px}
+.field-wrap input{background:none;border:none;outline:none;color:#fff;font-size:14px;flex:1;font-family:inherit}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.select-wrap{background:#16161F;border:1px solid #2A2A3A;border-radius:12px;padding:13px 16px;color:#fff;font-size:13px;display:flex;justify-content:space-between;align-items:center}
+.select-wrap span:last-child{color:#8888A0}
+.terms{display:flex;align-items:flex-start;gap:10px;margin:16px 0;font-size:12px;color:#8888A0;line-height:1.5}
+.terms .check{width:18px;height:18px;border-radius:5px;background:#FF6B00;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;font-size:11px;color:#fff}
+.terms span b{color:#FF6B00}
+.btn{width:100%;padding:15px;background:linear-gradient(135deg,#FF6B00,#FF9500);border:none;border-radius:14px;color:#fff;font-size:16px;font-weight:700;cursor:pointer}
+.login-row{text-align:center;margin-top:18px;font-size:13px;color:#8888A0}
+.login-row span{color:#FF6B00;font-weight:600}
+</style></head><body>
+<div class="header">
+  <h1>Create Account 🚀</h1>
+  <p>Start your AI-powered career journey</p>
+</div>
+<div class="card">
+  <div class="row">
+    <div class="field">
+      <label>First Name</label>
+      <div class="field-wrap"><input value="Rahul" readonly></div>
+    </div>
+    <div class="field">
+      <label>Last Name</label>
+      <div class="field-wrap"><input value="Sharma" readonly></div>
+    </div>
+  </div>
+  <div class="field">
+    <label>Email Address</label>
+    <div class="field-wrap"><input type="email" value="rahul.sharma@gmail.com" readonly></div>
+  </div>
+  <div class="field">
+    <label>Phone Number</label>
+    <div class="field-wrap"><input value="+91 98765 43210" readonly></div>
+  </div>
+  <div class="field">
+    <label>Education Level</label>
+    <div class="select-wrap"><span>Undergraduate (B.Tech)</span><span>▾</span></div>
+  </div>
+  <div class="row">
+    <div class="field">
+      <label>State</label>
+      <div class="select-wrap"><span>Maharashtra</span><span>▾</span></div>
+    </div>
+    <div class="field">
+      <label>City</label>
+      <div class="field-wrap"><input value="Pune" readonly></div>
+    </div>
+  </div>
+  <div class="field">
+    <label>Password</label>
+    <div class="field-wrap"><input type="password" value="••••••••" readonly></div>
+  </div>
+  <div class="terms">
+    <div class="check">✓</div>
+    <span>I agree to CareerVerse's <b>Terms of Service</b> and <b>Privacy Policy</b></span>
+  </div>
+  <button class="btn">Create My Account</button>
+  <div class="login-row">Already have an account? <span>Sign in</span></div>
+</div>
+</body></html>

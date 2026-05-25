@@ -1,0 +1,67 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8"><style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{width:402px;min-height:874px;background:#0A0A0F;font-family:'Segoe UI',sans-serif;padding:54px 0 40px}
+.header{padding:0 20px;display:flex;align-items:center;gap:14px;margin-bottom:20px}
+.back{font-size:22px;color:#fff}
+.title{font-size:20px;font-weight:700;color:#fff}
+.tabs{display:flex;margin:0 20px 20px;background:#111118;border-radius:12px;padding:4px;gap:4px}
+.tab{flex:1;padding:8px;text-align:center;font-size:12px;font-weight:600;color:#8888A0;border-radius:8px;cursor:pointer}
+.tab.active{background:#FF6B00;color:#fff}
+/* Top 3 podium */
+.podium{display:flex;align-items:flex-end;justify-content:center;gap:12px;padding:0 20px;margin-bottom:24px}
+.podium-item{flex:1;display:flex;flex-direction:column;align-items:center;gap:6px}
+.podium-avatar{width:50px;height:50px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:700;color:#fff;border:3px solid transparent;margin:0 auto}
+.podium-name{font-size:11px;color:#ccc;font-weight:600;text-align:center}
+.podium-score{font-size:13px;font-weight:800;text-align:center}
+.podium-block{width:100%;border-radius:8px 8px 0 0;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:800;color:#fff}
+/* List */
+.list{padding:0 20px}
+.rank-item{background:#111118;border:1px solid #22222E;border-radius:14px;padding:12px 14px;display:flex;align-items:center;gap:12px;margin-bottom:8px}
+.rank-item.me{border-color:#FF6B0050;background:#1A1410}
+.rank-num{width:28px;text-align:center;font-size:13px;font-weight:700;color:#8888A0;flex-shrink:0}
+.rank-avatar{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:#fff;flex-shrink:0}
+.rank-body{flex:1}
+.rank-name{font-size:13px;font-weight:600;color:#fff}
+.rank-detail{font-size:11px;color:#8888A0;margin-top:1px}
+.rank-score{font-size:15px;font-weight:800}
+.you-badge{font-size:10px;background:#FF6B0020;color:#FF6B00;border:1px solid #FF6B0040;border-radius:8px;padding:2px 7px;margin-left:6px}
+</style></head><body>
+<div class="header"><span class="back">←</span><span class="title">Quiz Leaderboard</span></div>
+<div class="tabs">
+  <div class="tab active">Weekly</div>
+  <div class="tab">Monthly</div>
+  <div class="tab">All-Time</div>
+</div>
+
+<div class="podium">
+  <!-- 2nd -->
+  <div class="podium-item">
+    <div class="podium-avatar" style="background:linear-gradient(135deg,#C0C0C0,#A0A0A0);border-color:#C0C0C0">A</div>
+    <div class="podium-name">Ananya K.</div>
+    <div class="podium-score" style="color:#C0C0C0">1,840</div>
+    <div class="podium-block" style="background:linear-gradient(180deg,#C0C0C030,#A0A0A020);height:72px">🥈</div>
+  </div>
+  <!-- 1st -->
+  <div class="podium-item">
+    <div class="podium-avatar" style="background:linear-gradient(135deg,#FFD700,#FFA500);border-color:#FFD700;width:60px;height:60px;font-size:22px">P</div>
+    <div class="podium-name">Priya M.</div>
+    <div class="podium-score" style="color:#FFD700;font-size:16px">2,150</div>
+    <div class="podium-block" style="background:linear-gradient(180deg,#FFD70030,#FFA50020);height:96px">🥇</div>
+  </div>
+  <!-- 3rd -->
+  <div class="podium-item">
+    <div class="podium-avatar" style="background:linear-gradient(135deg,#CD7F32,#8B4513);border-color:#CD7F32">V</div>
+    <div class="podium-name">Vikram S.</div>
+    <div class="podium-score" style="color:#CD7F32">1,620</div>
+    <div class="podium-block" style="background:linear-gradient(180deg,#CD7F3230,#8B451320);height:56px">🥉</div>
+  </div>
+</div>
+
+<div class="list">
+  <div class="rank-item"><div class="rank-num">4</div><div class="rank-avatar" style="background:linear-gradient(135deg,#6B5BFF,#8B7BFF)">R</div><div class="rank-body"><div class="rank-name">Rohan T.</div><div class="rank-detail">AI/ML · 23 quizzes</div></div><div class="rank-score" style="color:#6B5BFF">1,480</div></div>
+  <div class="rank-item me"><div class="rank-num" style="color:#FF6B00">5</div><div class="rank-avatar" style="background:linear-gradient(135deg,#FF6B00,#FF9500)">Y</div><div class="rank-body"><div class="rank-name">You <span class="you-badge">Me</span></div><div class="rank-detail">Technology · 18 quizzes</div></div><div class="rank-score" style="color:#FF6B00">1,320</div></div>
+  <div class="rank-item"><div class="rank-num">6</div><div class="rank-avatar" style="background:linear-gradient(135deg,#20CF8C,#00A36C)">S</div><div class="rank-body"><div class="rank-name">Sneha P.</div><div class="rank-detail">Finance · 21 quizzes</div></div><div class="rank-score" style="color:#20CF8C">1,210</div></div>
+  <div class="rank-item"><div class="rank-num">7</div><div class="rank-avatar" style="background:linear-gradient(135deg,#4285F4,#5C9BFF)">A</div><div class="rank-body"><div class="rank-name">Arjun N.</div><div class="rank-detail">Software · 16 quizzes</div></div><div class="rank-score" style="color:#4285F4">1,090</div></div>
+  <div class="rank-item"><div class="rank-num">8</div><div class="rank-avatar" style="background:#2A2A3A">D</div><div class="rank-body"><div class="rank-name">Divya R.</div><div class="rank-detail">Healthcare · 14 quizzes</div></div><div class="rank-score" style="color:#8888A0">980</div></div>
+</div>
+</body></html>

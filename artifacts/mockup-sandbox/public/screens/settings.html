@@ -1,0 +1,61 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8"><style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{width:402px;min-height:874px;background:#0A0A0F;font-family:'Segoe UI',sans-serif;padding:54px 0 40px}
+.header{padding:0 20px;display:flex;align-items:center;gap:14px;margin-bottom:20px}
+.back{font-size:22px;color:#fff}
+.title{font-size:20px;font-weight:700;color:#fff}
+.profile-card{margin:0 20px 24px;background:#111118;border:1px solid #22222E;border-radius:18px;padding:20px;display:flex;align-items:center;gap:16px}
+.avatar{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,#FF6B00,#FF9500);display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:700;color:#fff;flex-shrink:0}
+.profile-info .name{font-size:17px;font-weight:700;color:#fff}
+.profile-info .email{font-size:12px;color:#8888A0;margin-top:2px}
+.profile-info .plan{display:inline-flex;align-items:center;gap:4px;background:#FF6B0020;border:1px solid #FF6B0040;border-radius:10px;padding:3px 10px;margin-top:6px;font-size:11px;color:#FF6B00;font-weight:600}
+.section{padding:0 20px;margin-bottom:20px}
+.section-title{font-size:12px;font-weight:700;color:#8888A0;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:10px}
+.item{background:#111118;border:1px solid #22222E;border-radius:14px;padding:15px 16px;display:flex;align-items:center;gap:14px;margin-bottom:8px}
+.item-icon{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.item-label{flex:1;font-size:14px;color:#fff;font-weight:500}
+.item-right{font-size:13px;color:#8888A0}
+.toggle{width:44px;height:24px;background:#FF6B00;border-radius:12px;position:relative;flex-shrink:0}
+.toggle::after{content:'';position:absolute;width:18px;height:18px;background:#fff;border-radius:50%;top:3px;right:3px}
+.toggle.off{background:#2A2A3A}
+.toggle.off::after{right:auto;left:3px}
+.version{text-align:center;color:#555566;font-size:12px;margin-top:8px}
+</style></head><body>
+<div class="header"><span class="back">←</span><span class="title">Settings</span></div>
+<div class="profile-card">
+  <div class="avatar">R</div>
+  <div class="profile-info">
+    <div class="name">Rahul Sharma</div>
+    <div class="email">rahul.sharma@gmail.com</div>
+    <div class="plan">⚡ Pro Plan</div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">Account</div>
+  <div class="item"><div class="item-icon" style="background:#FF6B0018">👤</div><div class="item-label">Edit Profile</div><div class="item-right">›</div></div>
+  <div class="item"><div class="item-icon" style="background:#6B5BFF18">🔒</div><div class="item-label">Change Password</div><div class="item-right">›</div></div>
+  <div class="item"><div class="item-icon" style="background:#20CF8C18">✉️</div><div class="item-label">Email Preferences</div><div class="item-right">›</div></div>
+</div>
+
+<div class="section">
+  <div class="section-title">Preferences</div>
+  <div class="item"><div class="item-icon" style="background:#FF6B0018">🌙</div><div class="item-label">Dark Mode</div><div class="toggle"></div></div>
+  <div class="item"><div class="item-icon" style="background:#6B5BFF18">🔔</div><div class="item-label">Push Notifications</div><div class="toggle"></div></div>
+  <div class="item"><div class="item-icon" style="background:#FF950018">📊</div><div class="item-label">Analytics Sharing</div><div class="toggle off"></div></div>
+  <div class="item"><div class="item-icon" style="background:#20CF8C18">🌐</div><div class="item-label">Language</div><div class="item-right">English ›</div></div>
+</div>
+
+<div class="section">
+  <div class="section-title">Career Preferences</div>
+  <div class="item"><div class="item-icon" style="background:#FF6B0018">🎯</div><div class="item-label">Career Interests</div><div class="item-right">Edit ›</div></div>
+  <div class="item"><div class="item-icon" style="background:#6B5BFF18">📍</div><div class="item-label">Preferred Location</div><div class="item-right">India ›</div></div>
+</div>
+
+<div class="section">
+  <div class="section-title">Support</div>
+  <div class="item"><div class="item-icon" style="background:#FF6B0018">❓</div><div class="item-label">Help & FAQ</div><div class="item-right">›</div></div>
+  <div class="item"><div class="item-icon" style="background:#FF4B4B18">🚪</div><div class="item-label" style="color:#FF4B4B">Sign Out</div></div>
+</div>
+<div class="version">CareerVerse v2.1.0 · Replit Cloud</div>
+</body></html>

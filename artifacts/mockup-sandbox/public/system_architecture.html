@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    background: #0A0A0F;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 40px;
+  }
+  .container { width: 960px; }
+  .title {
+    text-align: center;
+    font-size: 30px;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 6px;
+  }
+  .subtitle {
+    text-align: center;
+    color: #FF6B00;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 36px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+
+  /* Tier wrapper */
+  .tier {
+    background: #111118;
+    border: 1px solid #22222E;
+    border-radius: 20px;
+    padding: 24px;
+    margin-bottom: 20px;
+    position: relative;
+  }
+  .tier-label {
+    position: absolute;
+    top: -12px;
+    left: 24px;
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+  }
+  .tier-label.user { background: #FF6B0022; color: #FF6B00; border: 1px solid #FF6B0044; }
+  .tier-label.frontend { background: #61DAFB22; color: #61DAFB; border: 1px solid #61DAFB44; }
+  .tier-label.backend { background: #3ECF8E22; color: #3ECF8E; border: 1px solid #3ECF8E44; }
+  .tier-label.ai { background: #4285F422; color: #4285F4; border: 1px solid #4285F444; }
+  .tier-label.data { background: #FF950022; color: #FF9500; border: 1px solid #FF950044; }
+
+  /* User block */
+  .user-block {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    padding: 20px 0;
+  }
+  .user-device {
+    text-align: center;
+  }
+  .user-device-icon { font-size: 36px; margin-bottom: 8px; }
+  .user-device-name { color: #fff; font-size: 13px; font-weight: 600; }
+  .user-device-desc { color: #8888A0; font-size: 11px; margin-top: 2px; }
+
+  /* Frontend */
+  .frontend-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+  }
+  .module {
+    background: #16161F;
+    border: 1px solid #22222E;
+    border-radius: 14px;
+    padding: 18px;
+    text-align: center;
+  }
+  .module-icon { font-size: 24px; margin-bottom: 6px; }
+  .module-name { color: #fff; font-size: 12px; font-weight: 600; }
+  .module-desc { color: #8888A0; font-size: 10px; margin-top: 2px; }
+
+  /* Backend */
+  .backend-row {
+    display: flex;
+    gap: 14px;
+  }
+  .backend-main {
+    flex: 1;
+    background: #16161F;
+    border: 1px solid #22222E;
+    border-radius: 14px;
+    padding: 18px;
+    text-align: center;
+  }
+  .backend-main-icon { font-size: 28px; margin-bottom: 6px; }
+  .backend-main-name { color: #fff; font-size: 14px; font-weight: 700; }
+  .backend-main-desc { color: #8888A0; font-size: 11px; }
+  .backend-routes {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 2;
+  }
+  .route-tag {
+    background: #0D0D14;
+    border: 1px solid #1E1E2A;
+    border-radius: 8px;
+    padding: 8px 14px;
+    color: #ccc;
+    font-size: 11px;
+    font-family: 'SF Mono', monospace;
+  }
+  .route-tag .method { color: #3ECF8E; font-weight: 700; }
+  .route-tag .path { color: #9CDCFE; }
+
+  /* AI */
+  .ai-block {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .ai-core {
+    width: 200px;
+    background: #4285F418;
+    border: 1px solid #4285F444;
+    border-radius: 16px;
+    padding: 24px;
+    text-align: center;
+  }
+  .ai-core-icon { font-size: 36px; margin-bottom: 8px; }
+  .ai-core-name { color: #4285F4; font-size: 15px; font-weight: 700; }
+  .ai-core-desc { color: #8888A0; font-size: 11px; margin-top: 4px; }
+  .ai-modules {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+
+  /* Data */
+  .data-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+
+  /* Arrows */
+  .arrow-section {
+    text-align: center;
+    padding: 8px 0;
+    color: #FF6B0055;
+    font-size: 22px;
+  }
+
+  /* Legend */
+  .legend {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    margin-top: 16px;
+    padding: 14px;
+    background: #111118;
+    border: 1px solid #22222E;
+    border-radius: 12px;
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    color: #8888A0;
+  }
+  .legend-dot { width: 10px; height: 10px; border-radius: 3px; }
+
+  /* Note */
+  .note {
+    text-align: center;
+    margin-top: 20px;
+    color: #444455;
+    font-size: 11px;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="title">CareerVerse System Architecture</div>
+  <div class="subtitle">Three-Tier AI-Powered Career Recommendation Platform</div>
+
+  <!-- TIER 1: User -->
+  <div class="tier">
+    <div class="tier-label user">User Layer</div>
+    <div class="user-block">
+      <div class="user-device">
+        <div class="user-device-icon">📱</div>
+        <div class="user-device-name">Mobile App</div>
+        <div class="user-device-desc">iOS / Android / Web</div>
+      </div>
+      <div class="user-device">
+        <div class="user-device-icon">👤</div>
+        <div class="user-device-name">Student / Professional</div>
+        <div class="user-device-desc">Indian job seekers</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="arrow-section">↓ HTTPS / REST API ↓</div>
+
+  <!-- TIER 2: Frontend -->
+  <div class="tier">
+    <div class="tier-label frontend">Presentation Layer</div>
+    <div class="frontend-grid">
+      <div class="module">
+        <div class="module-icon">⚛</div>
+        <div class="module-name">React Native 0.81.5</div>
+        <div class="module-desc">Cross-platform mobile UI</div>
+      </div>
+      <div class="module">
+        <div class="module-icon">🚀</div>
+        <div class="module-name">Expo SDK 54</div>
+        <div class="module-desc">Build + dev toolchain</div>
+      </div>
+      <div class="module">
+        <div class="module-icon">📁</div>
+        <div class="module-name">TypeScript 5.9</div>
+        <div class="module-desc">Strict type safety</div>
+      </div>
+      <div class="module">
+        <div class="module-icon">🌐</div>
+        <div class="module-name">Expo Router v6</div>
+        <div class="module-desc">File-based routing</div>
+      </div>
+      <div class="module">
+        <div class="module-icon">💾</div>
+        <div class="module-name">AsyncStorage</div>
+        <div class="module-desc">Local data persistence</div>
+      </div>
+      <div class="module">
+        <div class="module-icon">✅</div>
+        <div class="module-name">Zod</div>
+        <div class="module-desc">Schema validation</div>
+      </div>
+      <div class="module">
+        <div class="module-icon">📊</div>
+        <div class="module-name">Custom Charts</div>
+        <div class="module-desc">Pure React Native Views</div>
+      </div>
+      <div class="module">
+        <div class="module-icon">🎨</div>
+        <div class="module-name">Poppins + Dark Theme</div>
+        <div class="module-desc">Forced dark mode UI</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="arrow-section">↓ POST / GET / JSON ↓</div>
+
+  <!-- TIER 3: Backend -->
+  <div class="tier">
+    <div class="tier-label backend">Application Layer</div>
+    <div class="backend-row">
+      <div class="backend-main">
+        <div class="backend-main-icon">⚡</div>
+        <div class="backend-main-name">Express 5</div>
+        <div class="backend-main-desc">Node.js REST API Server</div>
+        <div class="backend-main-desc">Port 8080 via Proxy</div>
+      </div>
+      <div class="backend-routes">
+        <div class="route-tag"><span class="method">POST</span> <span class="path">/api/resume/analyze</span> — Resume AI analysis</div>
+        <div class="route-tag"><span class="method">POST</span> <span class="path">/api/career/eligibility-test</span> — Generate career quiz</div>
+        <div class="route-tag"><span class="method">GET</span> <span class="path">/api/healthz</span> — Server health check</div>
+        <div class="route-tag"><span class="method">-</span> <span class="path">Multer</span> — File upload (PDF/DOCX/IMG)</div>
+        <div class="route-tag"><span class="method">-</span> <span class="path">pdf-parse / mammoth</span> — Text extraction</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="arrow-section">↓ OpenAI API Calls ↓</div>
+
+  <!-- TIER 4: AI -->
+  <div class="tier">
+    <div class="tier-label ai">AI Inference Layer</div>
+    <div class="ai-block">
+      <div class="ai-core">
+        <div class="ai-core-icon">🤖</div>
+        <div class="ai-core-name">OpenAI GPT-4o-mini</div>
+        <div class="ai-core-desc">Bearer token auth</div>
+        <div class="ai-core-desc">JSON object response format</div>
+      </div>
+      <div class="ai-modules">
+        <div class="module">
+          <div class="module-icon">📄</div>
+          <div class="module-name">Resume Analyzer</div>
+          <div class="module-desc">ATS score + skill extraction</div>
+        </div>
+        <div class="module">
+          <div class="module-icon">📖</div>
+          <div class="module-name">Eligibility Test</div>
+          <div class="module-desc">AI-generated quiz questions</div>
+        </div>
+        <div class="module">
+          <div class="module-icon">💬</div>
+          <div class="module-name">CareerBot Chat</div>
+          <div class="module-desc">Career Q&A assistant</div>
+        </div>
+        <div class="module">
+          <div class="module-icon">📊</div>
+          <div class="module-name">Skill Analysis</div>
+          <div class="module-desc">Gap detection + courses</div>
+        </div>
+        <div class="module">
+          <div class="module-icon">🎯</div>
+          <div class="module-name">Career Matching</div>
+          <div class="module-desc">Score-based recommendations</div>
+        </div>
+        <div class="module">
+          <div class="module-icon">📈</div>
+          <div class="module-name">Industry Trends</div>
+          <div class="module-desc">Demand + salary outlook</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="arrow-section">↓ Data Persistence ↓</div>
+
+  <!-- TIER 5: Data -->
+  <div class="tier">
+    <div class="tier-label data">Data Layer</div>
+    <div class="data-grid">
+      <div class="module">
+        <div class="module-icon">💾</div>
+        <div class="module-name">AsyncStorage</div>
+        <div class="module-desc">User answers, saved careers, profile (local)</div>
+      </div>
+      <div class="module">
+        <div class="module-icon">🐘</div>
+        <div class="module-name">Drizzle ORM + PostgreSQL</div>
+        <div class="module-desc">Schema defined; future cloud sync</div>
+      </div>
+      <div class="module">
+        <div class="module-icon">📝</div>
+        <div class="module-name">Static Data Files</div>
+        <div class="module-desc">careers.ts, mentors.ts, assessment.ts</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Legend -->
+  <div class="legend">
+    <div class="legend-item"><div class="legend-dot" style="background:#61DAFB;"></div> Frontend</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#3ECF8E;"></div> Backend</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#4285F4;"></div> AI Layer</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#FF9500;"></div> Data Layer</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#FF6B00;"></div> User</div>
+  </div>
+
+  <div class="note">CareerVerse — React Native + Express 5 + OpenAI GPT-4o-mini | Replit Cloud | Dark Theme</div>
+</div>
+</body>
+</html>

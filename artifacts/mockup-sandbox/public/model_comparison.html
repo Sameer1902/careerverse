@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    background: #0A0A0F;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 40px;
+  }
+  .container { width: 900px; }
+  .title {
+    text-align: center;
+    font-size: 28px;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 6px;
+  }
+  .subtitle {
+    text-align: center;
+    color: #FF6B00;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  .sub-note {
+    text-align: center;
+    color: #666677;
+    font-size: 12px;
+    margin-bottom: 32px;
+  }
+
+  /* Current Algorithm */
+  .section {
+    background: #111118;
+    border: 1px solid #22222E;
+    border-radius: 18px;
+    padding: 28px;
+    margin-bottom: 24px;
+  }
+  .section-label {
+    color: #FF6B00;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 18px;
+    text-align: center;
+  }
+
+  /* Bar chart */
+  .chart {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .bar-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .bar-label {
+    width: 160px;
+    color: #ccc;
+    font-size: 13px;
+    font-weight: 600;
+    text-align: right;
+  }
+  .bar-track {
+    flex: 1;
+    height: 32px;
+    background: #0D0D14;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+  }
+  .bar-fill {
+    height: 100%;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 10px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #fff;
+    transition: width 0.5s;
+  }
+  .bar-fill.interests { background: #FF6B00; width: 30%; }
+  .bar-fill.skills { background: #6B5BFF; width: 25%; }
+  .bar-fill.goal { background: #20CF8C; width: 20%; }
+  .bar-fill.risk { background: #FF9500; width: 15%; }
+  .bar-fill.salary { background: #3ECF8E; width: 10%; }
+
+  /* Algorithm code box */
+  .code-box {
+    background: #0D0D14;
+    border: 1px solid #1E1E2A;
+    border-radius: 12px;
+    padding: 18px 22px;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 12px;
+    line-height: 1.7;
+    color: #D4D4D4;
+    margin-top: 20px;
+  }
+  .comment { color: #6A9955; }
+  .keyword { color: #C586C0; }
+  .number { color: #B5CEA8; }
+  .variable { color: #9CDCFE; }
+
+  /* Input features */
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-top: 16px;
+  }
+  .feature-card {
+    background: #16161F;
+    border: 1px solid #22222E;
+    border-radius: 12px;
+    padding: 14px;
+    text-align: center;
+  }
+  .feature-icon { font-size: 22px; margin-bottom: 6px; }
+  .feature-name { color: #fff; font-size: 12px; font-weight: 600; }
+  .feature-desc { color: #8888A0; font-size: 10px; margin-top: 2px; }
+
+  /* Score distribution */
+  .score-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+    margin-top: 16px;
+  }
+  .score-card {
+    background: #16161F;
+    border: 1px solid #22222E;
+    border-radius: 12px;
+    padding: 16px;
+    text-align: center;
+  }
+  .score-num {
+    font-size: 24px;
+    font-weight: 800;
+    margin-bottom: 4px;
+  }
+  .score-label { color: #8888A0; font-size: 11px; }
+
+  .bottom-note {
+    text-align: center;
+    margin-top: 20px;
+    color: #444455;
+    font-size: 11px;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="title">Career Recommendation Model</div>
+  <div class="subtitle">Score-Based Matching Algorithm</div>
+  <div class="sub-note">Custom rule-based scoring engine (NOT machine learning) — uses weighted feature matching</div>
+
+  <!-- Score Weights -->
+  <div class="section">
+    <div class="section-label">Feature Weight Distribution</div>
+    <div class="chart">
+      <div class="bar-row">
+        <div class="bar-label">Interests Match</div>
+        <div class="bar-track"><div class="bar-fill interests">30 pts</div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">Skills Match</div>
+        <div class="bar-track"><div class="bar-fill skills">25 pts</div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">Goal Alignment</div>
+        <div class="bar-track"><div class="bar-fill goal">20 pts</div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">Risk Tolerance</div>
+        <div class="bar-track"><div class="bar-fill risk">15 pts</div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">Salary Target</div>
+        <div class="bar-track"><div class="bar-fill salary">10 pts</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Algorithm Code -->
+  <div class="section">
+    <div class="section-label">matchCareers() Algorithm (careers.ts)</div>
+    <div class="code-box"><span class="keyword">function</span> <span class="variable">matchCareers</span>(answers) {
+  <span class="keyword">let</span> <span class="variable">score</span> = <span class="number">0</span>;
+
+  <span class="comment">// Interests overlap (max 30 pts)</span>
+  <span class="variable">score</span> += <span class="variable">Math</span>.<span class="variable">min</span>(<span class="number">30</span>, <span class="variable">interestOverlap</span> * <span class="number">12</span>);
+
+  <span class="comment">// Skills overlap (max 25 pts)</span>
+  <span class="variable">score</span> += <span class="variable">Math</span>.<span class="variable">min</span>(<span class="number">25</span>, <span class="variable">skillOverlap</span> * <span class="number">8</span>);
+
+  <span class="comment">// Goal match (+20 pts)</span>
+  <span class="keyword">if</span> (<span class="variable">career</span>.<span class="variable">goalMatch</span>.<span class="variable">includes</span>(<span class="variable">goal</span>)) <span class="variable">score</span> += <span class="number">20</span>;
+
+  <span class="comment">// Risk level match (+15 pts)</span>
+  <span class="keyword">if</span> (<span class="variable">career</span>.<span class="variable">riskLevel</span> === <span class="variable">risk</span>) <span class="variable">score</span> += <span class="number">15</span>;
+
+  <span class="comment">// Salary fit (+5 pts max)</span>
+  <span class="keyword">if</span> (<span class="variable">salary</span> === <span class="string">"20-50"</span> && <span class="variable">career</span>.<span class="variable">salaryMax</span> >= <span class="number">20</span>) <span class="variable">score</span> += <span class="number">5</span>;
+
+  <span class="comment">// Final score clamped 35-98</span>
+  <span class="keyword">return</span> <span class="variable">Math</span>.<span class="variable">max</span>(<span class="number">35</span>, <span class="variable">Math</span>.<span class="variable">min</span>(<span class="number">98</span>, <span class="variable">score</span> + <span class="number">35</span>));
+}</div>
+  </div>
+
+  <!-- Input Features -->
+  <div class="section">
+    <div class="section-label">Input Features Used for Matching</div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">🎯</div>
+        <div class="feature-name">User Interests</div>
+        <div class="feature-desc">Multi-select (max 4) from 10 domains</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🛠</div>
+        <div class="feature-name">User Skills</div>
+        <div class="feature-desc">Multi-select strengths from 8 options</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🎯</div>
+        <div class="feature-name">Career Goal</div>
+        <div class="feature-desc">Single-select: job / business / study</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">⚠</div>
+        <div class="feature-name">Risk Tolerance</div>
+        <div class="feature-desc">Low / medium / high preference</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">💰</div>
+        <div class="feature-name">Salary Target</div>
+        <div class="feature-desc">5 LPA ranges from 3-5 to 50+</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🏫</div>
+        <div class="feature-name">Education Level</div>
+        <div class="feature-desc">Class 10 to working professional</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Score Range -->
+  <div class="section">
+    <div class="section-label">Match Score Distribution</div>
+    <div class="score-grid">
+      <div class="score-card">
+        <div class="score-num" style="color:#FF4B4B;">35-50</div>
+        <div class="score-label">Low Match</div>
+      </div>
+      <div class="score-card">
+        <div class="score-num" style="color:#FF9500;">50-65</div>
+        <div class="score-label">Moderate Match</div>
+      </div>
+      <div class="score-card">
+        <div class="score-num" style="color:#FF6B00;">65-80</div>
+        <div class="score-label">Good Match</div>
+      </div>
+      <div class="score-card">
+        <div class="score-num" style="color:#20CF8C;">80-92</div>
+        <div class="score-label">Strong Match</div>
+      </div>
+      <div class="score-card">
+        <div class="score-num" style="color:#6B5BFF;">92-98</div>
+        <div class="score-label">Best Match</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bottom-note">CareerVerse — Custom weighted scoring algorithm (not ML) | 25 careers mapped | India-focused dataset</div>
+</div>
+</body>
+</html>
