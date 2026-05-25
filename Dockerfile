@@ -1,8 +1,8 @@
 # Build stage
 FROM node:20-alpine AS builder
 
-# Install pnpm 8 (compatible with Node.js 20)
-RUN npm install -g pnpm@8
+# Install pnpm
+RUN npm install -g pnpm@9
 
 WORKDIR /app
 
@@ -17,7 +17,7 @@ COPY scripts/ ./scripts/
 COPY tsconfig.base.json ./
 COPY tsconfig.json ./
 
-# Install dependencies (regenerate lockfile if needed)
+# Install dependencies
 RUN pnpm install --no-frozen-lockfile
 
 # Build the API server
