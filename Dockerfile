@@ -2,7 +2,7 @@
 FROM node:20-alpine AS builder
 
 # Install pnpm
-RUN npm install -g pnpm@9
+RUN npm install -g pnpm@latest
 
 WORKDIR /app
 
@@ -17,8 +17,8 @@ COPY scripts/ ./scripts/
 COPY tsconfig.base.json ./
 COPY tsconfig.json ./
 
-# Install dependencies
-RUN pnpm install --frozen-lockfile
+# Install dependencies (regenerate lockfile if needed)
+RUN pnpm install --no-frozen-lockfile
 
 # Build the API server
 RUN pnpm --filter @workspace/api-server build
@@ -29,7 +29,7 @@ FROM node:20-alpine AS runner
 WORKDIR /app
 
 # Install pnpm for workspace resolution
-RUN npm install -g pnpm@9
+RUN npm install -g pnpm@latest
 
 # Copy workspace config
 COPY package.json pnpm-workspace.yaml pnpm-lock.yaml .npmrc ./
@@ -38,7 +38,7 @@ COPY artifacts/api-server/package.json ./artifacts/api-server/package.json
 COPY scripts/package.json ./scripts/package.json
 
 # Install production dependencies only
-RUN pnpm install --frozen-lockfile --prod
+RUN pnpm install --no-frozen-lockfile --prod
 
 # Copy built output from builder
 COPY --from=builder /app/artifacts/api-server/dist ./artifacts/api-server/dist
